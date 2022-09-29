@@ -22,3 +22,11 @@ using namespace std;
 //     cout<<charName<<endl;
 //     return 0;
 // }
+
+// int main(){
+//     char x[2][2][2]={
+//         {{'a','b'},{'a','b'}},{{'a','b'},{'l','b'}}
+//     };
+//     cout<<x[1][1][0];
+//     return 0;
+// }

@@ -48,4 +48,8 @@ from tabulate import tabulate as tb
 # here we are with df.loc finding rows with conditions like competetion and avg. monthly searches and then we are simply telling what columns we want in new csv like competeivin and avg.monthlyu searches
 # ld.to_csv('E:\\Creative Works\\Visual Works\\Learning Works\\Python FIles\\final.csv') 
 # table=df.loc[df["Competition"]=="Low",["Competition","Keyword"]]
-
+# dict={"Keyword":[10,11,12],"Name":["Nikhil","Nafse","Nalak"]}
+# df=pd.DataFrame(dict)# converting dictioniary to dataframe
+# df["Name"][1]="Lello"#Assigning values to specific columns
+# df.loc[3]=[13,"Hello"] # adding row with index 3 and value 13 and "Hello"
+# print(df)
