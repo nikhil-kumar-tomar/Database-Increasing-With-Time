@@ -52,4 +52,5 @@ from tabulate import tabulate as tb
 # df=pd.DataFrame(dict)# converting dictioniary to dataframe
 # df["Name"][1]="Lello"#Assigning values to specific columns
 # df.loc[3]=[13,"Hello"] # adding row with index 3 and value 13 and "Hello"
+#df.drop(index_positon) #to drop a row yuo need its index
 # print(df)
