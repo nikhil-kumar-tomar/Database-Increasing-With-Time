@@ -1,6 +1,11 @@
+//Libraries Used
 #include<iostream>
 #include<string>
 #include<cmath>
+#include<algorithm>
+#include<list>
+#include<cctype>
+#include<map>
 using namespace std;
  
 // cube root program //
@@ -384,4 +389,1094 @@ using namespace std;
     
 //     return 0;
 // }
+
+// Assignment 3 Starts here
+//question 1
+
+//  int main(){
+//     int a,b,c;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     cout<<"Maximum number is "<<max({a,b,c});
+    
+//     return 0;
+//  }
+
+//question 2 
+//  int main(){
+//     int a,b,c,d;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     cout<<"Enter your fourth num: ";
+//     cin>>d;
+//     cout<<"Maximum number is "<<max({a,b,c,d});
+    
+//     return 0;
+//  }
+
+//question 3
+//  int main(){
+//     int a,b;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Numbers are: "<<endl<<max({a,b})<<endl<<min({a,b});
+    
+//     return 0;
+//  }
+
+//question 4
+//  int main(){
+//     int a,b,c;
+//     cout<<"Enter Your first side: ";
+//     cin>>a;
+//     cout<<"Enter your sec side: ";
+//     cin>>b;
+//     cout<<"Enter your third side: ";
+//     cin>>c;
+//     if(pow(a,2)==pow(b,2)+pow(c,2) || pow(b,2)==pow(a,2)+pow(c,2) || pow(c,2)==pow(b,2)+pow(a,2) ){
+//         cout<<"Triangle is right angled";
+//     }
+//     else{
+//         cout<<"Triangle is not right angled";
+//     }
+    
+//     return 0;
+//  }
+
+// question 5
+//  int main(){
+//     float a,b,c;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     cout<<"Slope of line is "<<(-a/b)<<endl;
+//     if (b==0){
+//         cout<<"line is Vertical"<<endl;
+//     }
+//     else{
+//         cout<<"line is not Vertical"<<endl;
+//     }
+
+//     return 0;
+//  }
+
+// question 6
+
+//  int main(){
+//     float a,b,c,x1,x2,d,real,img;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     d=pow(b,2)-(4*a*c);
+//     if (d>0){
+//         x1=(-b+sqrt(d))/(2*a);
+//         x2=(-b-sqrt(d))/(2*a);
+//         cout<<x1<<endl<<x2;
+//     }
+//     else if (d==0){
+//         x1=(-b+sqrt(d))/(2*a);
+//         cout<<x1;
+//     }
+//     else if (d<0){
+//         real= -b/(2*a);
+//         img =sqrt(-d)/(2*a);
+//         cout<<real<<endl;
+//         cout<<img<<endl;
+//         cout<<"-"<<img<<endl; 
+//     }
+//     else{
+//         cout<<"No valid roots here";
+//     }
+
+//     return 0;
+//  }
+
+// question 7
+
+//  int main(){
+//     float a,b,c,x1,x2,d,real,img;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     d=pow(b,2)-(4*a*c);
+//     if (d>0){
+//         x1=(-b+sqrt(d))/(2*a);
+//         x2=(-b-sqrt(d))/(2*a);
+//         cout<<x1<<endl<<x2;
+//     }
+//     else if (d==0){
+//         x1=(-b+sqrt(d))/(2*a);
+//         cout<<x1;
+//     }
+//     else if (d<0){
+//         real= -b/(2*a);
+//         img =sqrt(-d)/(2*a);
+//         cout<<real<<"+"<<img<<"i"<<endl;
+//         cout<<real<<"-"<<img<<"i"<<endl; 
+
+//     }
+//     else{
+//         cout<<"No valid roots here";
+//     }
+
+//     return 0;
+//  }
+
+//question 8
+
+//  int main(){
+//     int a,b,c;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     if (a==b){
+//         cout<<"Unique number is "<<c;
+//     }
+//     else if (a==c){
+//         cout<<"Unique number is "<<b;
+//     }
+//     else if(b==c){
+//         cout<<"Unique number is "<<a;
+//     }
+//     else {
+//         cout<<"No unique number here";
+//     }
+//     return 0;
+//  }
+
+// quewstion 9
+
+//  int main(){
+//     int a,b,c,d,x;
+//     list<int> list1;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     cout<<"Enter your fourth num: ";
+//     cin>>d;
+//     cout<<"Enter your Finding num: ";
+//     cin>>x;
+//     list1={a,b,c,d};
+//     for (int i: list1){
+//         if (i==x){
+//             if (i==a){
+//                 cout<<"x is equal to a";
+//             }
+//             if (i==b){
+//                 cout<<"x is equal to b";
+//             }            
+//             if (i==c){
+//                 cout<<"x is equal to c";
+//             }
+//         }
+//     }
+//     return 0;
+//  }
+
+// question 10
+
+//  int main(){
+//     int a,b,c,d,x,l;
+//     l=0;
+//     list<int> list1;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     cout<<"Enter your fourth num: ";
+//     cin>>d;
+//     cout<<"Enter your Finding num: ";
+//     cin>>x;
+//     list1={a,b,c,d};
+//     for (int i:list1){
+//         if (i==x){
+//             l++;
+//         }
+//     }
+//     cout<<l;
+//     return 0;
+//  }
+
+// question 11
+
+//  int main(){
+//     int a,b,c,l;
+//     list<int> list1;
+//     cout<<"Enter Your first num: ";
+//     cin>>a;
+//     cout<<"Enter your sec num: ";
+//     cin>>b;
+//     cout<<"Enter your third num: ";
+//     cin>>c;
+//     list1={a,b,c};
+//     for (int i:list1){
+//         if (a>b && a<c || b>a && c<a){
+//             l=a;
+//         }
+//         else if (b>a && b<c || a>b && c<b){
+//             l=b;
+//         }
+//         else if (c>b && c<a || b>c && a<c){
+//             l=c;
+//         }
+//     }
+//     cout<<"Number is: "<<l;
+//     return 0;
+//  }
+
+// question 12
+
+// int main(){
+//     float p,q,r,a,b,c,dist,cent_pt,chord_len,area;
+//     cout <<"Enter your x coordinate for circle: ";
+//     cin>>p;
+//     cout <<"Enter your y coordinate for circle: ";
+//     cin>>q;
+//     cout <<"Enter radius: ";
+//     cin>>r;
+//     cout<<"ax+by+c=0"<<endl;
+//     cout <<"Enter your a for line: ";
+//     cin>>a;
+//     cout <<"Enter your b for line: ";
+//     cin>>b;
+//     cout <<"Enter your c for line: ";
+//     cin>>c;
+//     dist = (fabs(a * p + b * q + c))/(sqrt(pow(a,2) + pow(b,2)));
+//     if (r>dist){
+//         cout<<"Line and circle Intersects"<<endl;
+//         chord_len=2*(sqrt(pow(r,2)-pow(dist,2)));
+//         area=(chord_len*dist)/2;
+//         cout<<"Area of Triangle is: "<<area;
+//     }
+//     else {
+//         cout<<"no intersection";
+//     }
+//     return 0;
+// }
+
+// Simple calculator using switch
+// void sum(){
+//     int x, y, z;
+//     cout << "Enter your first number: ";
+//     cin >> x;
+//     cout << "Enter your second number: ";
+//     cin >> y;
+//     z = x + y;
+//     cout << "Your number is " << z << endl<<endl;   
+// }
+
+// void diff(){
+//     int x, y, z;
+//     cout << "Enter your first number: ";
+//     cin >> x;
+//     cout << "Enter your second number: ";
+//     cin >> y;
+//     z = x - y;
+//     cout << "Your number is " << z << endl<<endl;
+// }
+// void mult(){
+//     int x,y,z;
+//     cout << "Enter your first number: ";
+//     cin >> x;
+//     cout << "Enter your second number: ";
+//     cin >> y;
+//     z = x * y;
+//     cout << "Your number is " << z << endl<<endl;
+// }
+// void divi(){
+//     int x,y,z;
+//     cout << "Enter your first number: ";
+//     cin >> x;
+//     cout << "Enter your second number: ";
+//     cin >> y;
+//     z = x / y;
+//     cout << "Your number is " << z << endl<<endl;
+// }
+
+// int main(){
+//     int inp;
+//     cout << "\n1.Sum\n2.Diff\n3.Multiply\n4.Division\n\n";
+//     cout << "Enter your choice: ";
+//     cin >> inp;
+//     switch(inp){
+//         case 1:
+//             sum();
+//             break;
+//         case 2:
+//             diff();
+//             break;
+//         case 3:
+//             mult();
+//             break;
+//         case 4:
+//             divi();
+//             break;
+//         default:
+//             cout<<"Not a valid input"<<endl;
+//     }
+//     return 0;
+// }
+// simple caluclator end
+
+// Sum of first 10 natural numbers
+// int main(){
+//     int y=0;
+//     for(int x=1;x<=10;x++){
+//         y+=x;
+//     }
+//     cout<<y;
+//     return 0;
+// }
+
+//Output design
+// int main(){ 
+//     map<int, string> roll_a_p;
+//     int inp,roll;
+//     char choic;
+//     while (true){
+//         cout<<"**************************************************** Program For Attendance **************************************************** "<<endl;
+//         cout<<"                                                 1. Add Attendance of children"<<endl;
+//         cout<<"                                                 2. Remove Attendance of children"<<endl;
+//         cout<<"                                                 3. Check Attendance of children"<<endl;
+//         cout<<"                                                 4. Exit"<<endl;
+//         cout<<"Enter your choice: ";
+//         cin>>inp;
+//         if (inp==1){
+//             cout<<"                                                    Add Attendance of children"<<endl;
+//             cout<<"Enter Roll no: ";
+//             cin>>roll;
+//             cout<<"Mark Present for "<<roll<<" (Y/N): ";
+//             cin>>choic;
+//             choic=toupper(choic);
+//             if (choic=='Y'){
+//                 roll_a_p[roll]="Present";
+//                 cout<<roll<<" Marked Present"<<endl;
+//             }
+//             else{
+//                 cout<<"Nothing changed"<<endl;
+//             }
+//         }
+//         else if(inp==2){
+//             cout<<"                                                    Remove Attendance of children"<<endl;
+//             cout<<"Enter Roll no: ";
+//             cin>>roll;
+//             cout<<"Mark Absent for "<<roll<<" (Y/N): ";
+//             cin>>choic;
+//             choic=toupper(choic);
+//             if (choic=='Y'){
+//                 roll_a_p[roll]="Absent";
+//                 cout<<roll<<" Marked Absent"<<endl;
+//             }
+//             else{
+//                 cout<<"Nothing changed"<<endl;
+//             }
+//         }
+//         else if (inp==3){
+//             cout<<"                                                    Check Attendance of children"<<endl;
+//             cout<<"Enter Roll no: ";
+//             cin>>roll;
+//             for (auto iter=roll_a_p.begin(); iter!=roll_a_p.end();iter++){
+//                 if(roll==(*iter).first){
+//                     cout<<(*iter).first<<" is "<<(*iter).second<<endl<<endl;
+//                     break;
+//                 }
+//            }
+
+//         }
+//         else if (inp==4){
+//             cout<<"                                                    Exit"<<endl;
+//             cout<<"-----------------------------------------------Have a Nice Day-----------------------------------------------"<<endl;
+//             break;
+//     }
+//     }
+//     return 0;
+// }
+
+//sum of five numbers ones digit
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         int ones=i%10;
+//         z+=ones;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+// Second digit sum
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         int no_ones_dig=i/10;
+//         int ones=no_ones_dig%10;
+//         z+=ones;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+// Sum after removing last digit
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         int no_ones_dig=i/10;
+//         z+=no_ones_dig;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+// sum of number after removing second last digit
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         int temp1=i%10;
+//         temp1=i%10;    
+//         i=i/10;
+//         int temp2=i%10;       
+//         i=i-temp2+temp1;
+//         z+=i;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+//Sum of product of last two digits 
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         int ones=i%10;//first digit
+//         int no_ones_dig=i/10;
+//         int lones=no_ones_dig%10;
+//         z+=ones*lones;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+
+// sum of reversing the last two digits numbers
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         int ones=i%10;//first digit
+//         int no_ones_dig=i/10;
+//         int lones=no_ones_dig%10;
+//         //cout<<ones<<lones<<endl;
+//         string ones1=to_string(ones);
+//         string lones1=to_string(lones);
+//         string nice=ones1+lones1;
+//         int noice=stoi(nice);
+//         cout<<noice<<endl;
+//         if (i>=100){
+//             noice+=i-ones;
+//         }
+//         z+=noice;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+
+// last even number
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1,list2;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     list2={};
+//     for (auto i: list1){
+//         if(i%2==0){
+//             list2.push_back(i);
+//         }
+//     }
+//     cout<<list2.back();
+//     return 0;
+// }
+
+
+// Sum of number * elements
+// int main(){
+//     int a,b,c,d,e,z,l=1;
+//     z=0;
+//     list<int> list1;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     for (auto i: list1){
+//         z+=l*i;
+//         l++;
+//     }    
+//     cout<<z;
+//     return 0;
+// }
+
+// Sum of odd numbers
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1,list2;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     list2={};
+//     for (auto i: list1){
+//         if(i%2!=0){
+//             list2.push_back(i);
+//         }
+//     }
+//     for(auto i: list2){
+//         z+=i;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+
+// No of odd numbers
+
+// int main(){
+//     int a,b,c,d,e,z;
+//     z=0;
+//     list<int> list1,list2;
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     cout<<"Enter your fourth number: ";
+//     cin>>d;
+//     cout<<"Enter your fifth number: ";
+//     cin>>e;
+//     list1={a,b,c,d,e};
+//     list2={};
+//     for (auto i: list1){
+//         if(i%2!=0){
+//             list2.push_back(i);
+//         }
+//     }
+//     for(auto i: list2){
+//         z++;
+//     }
+//     cout<<z;
+//     return 0;
+// }
+
+
+
+// Hotel Program
+
+// int main(){
+//     int choic;
+//     cout<<"**************************************************** Program For Hotel Booking **************************************************** "<<endl<<endl;
+//     cout<<"**************************************************** Choose Your location    ****************************************************"<<endl;
+//     cout<<"                                                     1. New York "<<endl;
+//     cout<<"                                                     2. Paris "<<endl;
+//     cout<<"                                                     3. Mumbai "<<endl;
+//     cout<<"Enter your choice: ";
+//     cin>>choic;
+//     if (choic==1){
+//         int choice;
+//         cout<<"**************************************************** Welcome to New York Booking Portal ****************************************************"<<endl<<endl;
+//         cout<<"**************************************************** Choose Your Room Type ****************************************************: "<<endl;
+//         cout<<"                                                     1. Deluxe"<<endl;
+//         cout<<"                                                     2. Suite"<<endl;
+//         cout<<"                                                     3. Penthouse"<<endl;
+//         cout<<"Enter your choice: ";
+//         cin>>choice;
+//         if(choice==1){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Deluxe Room selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*300)+150*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else if(choice==2){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Suite selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*400)+250*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else if(choice==3){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Penthouse selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*400)+250*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else{
+//             cout<<"Choice not available"<<endl;
+//         }
+
+//     }
+//     else if (choic==2){
+//         int choice;
+//         cout<<"**************************************************** Welcome to Paris Booking Portal ****************************************************"<<endl<<endl;
+//         cout<<"**************************************************** Choose Your Room Type ****************************************************: "<<endl;
+//         cout<<"                                                     1. Deluxe"<<endl;
+//         cout<<"                                                     2. Suite"<<endl;
+//         cout<<"                                                     3. Penthouse"<<endl;
+//         cout<<"Enter your choice: ";
+//         cin>>choice;
+//         if(choice==1){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Deluxe Room selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*350)+200*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else if(choice==2){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Suite selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*450)+300*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else if(choice==3){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Penthouse selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*450)+300*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else{
+//             cout<<"Choice not available"<<endl;
+//         }
+
+//     }
+//     else if (choic==3){
+//         int choice;
+//         cout<<"**************************************************** Welcome to Mumbai Booking Portal ****************************************************"<<endl<<endl;
+//         cout<<"**************************************************** Choose Your Room Type ****************************************************: "<<endl;
+//         cout<<"                                                     1. Deluxe"<<endl;
+//         cout<<"                                                     2. Suite"<<endl;
+//         cout<<"                                                     3. Penthouse"<<endl;
+//         cout<<"Enter your choice: ";
+//         cin>>choice;
+//         if(choice==1){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Deluxe Room selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*400)+250*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else if(choice==2){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Suite selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*500)+350*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else if(choice==3){
+//             string in_day,out_day;
+//             int Num_day,peop_ent,room_ent;
+//             double total_amt,gst_amt;
+//             cout<<"Penthouse selected"<<endl;
+//             cout<<"Choose your Checkin Day(DD/MM/YY): ";
+//             cin>>in_day;
+//             cout<<"Choose your checkout Day(DD/MM/YY): ";
+//             cin>>out_day;
+//             cout<<"Number of Day you are planning to stay: ";
+//             cin>>Num_day;
+//             cout<<"Enter No of People Entering: ";
+//             cin>>peop_ent;
+//             cout<<"Enter no of Rooms you will be requiring: ";
+//             cin>>room_ent;
+//             total_amt=Num_day*(room_ent*600)+450*peop_ent;
+//             gst_amt=total_amt*18/100;
+//             cout<<"Your Staying cost will be: "<<"$ "<<total_amt<<endl;
+//             cout<<"Additional GST Cost of 18%:  "<<"$ "<<gst_amt<<endl;
+//             cout<<"Total cost (including gst): "<<"$ "<<gst_amt+total_amt<<endl;
+//         }
+//         else{
+//             cout<<"Choice not available"<<endl;
+//         }
+//     }
+//     else{
+//         cout<<"Choice not available"<<endl;
+//     }
+
+//     return 0;
+// }
+
+// Assignment 5 Starts here
+
+//SOlid rectangel
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter number of rows: ";
+//     cin>>rows;
+//     cout<<"Enter number of columns: ";
+//     cin>>columns;
+//     for (int i=1;i<=rows;i++){
+//     for (int x=1;x<=columns;x++){
+//         cout<<"*";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+
+// Rigth angle pyramid
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter number of rows: ";
+//     cin>>rows;
+//     for (int i=1;i<=rows;i++){
+//         for (int x=1;x<=i;x++){
+//                 cout<<"*";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+
+// Hollow Rectangle
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter number of rows: ";
+//     cin>>rows;
+//     cout<<"Enter number of columns: ";
+//     cin>>columns;
+//     for (int i=1;i<=rows;i++){
+//         if (i==1){
+//             for(int x=1;x<=columns;x++){
+//                 cout<<"*";
+//             }
+//         }
+//         else if (i==rows){
+//             for(int x=1;x<=columns;x++){
+//                 cout<<"*";
+//             }
+//         }
+//         else{
+//             for(int x=1;x<=1;x++){
+//                 for(int x=1;x<=1;x++){
+//                     cout<<"*";
+//                     for(int l=0;l<=columns-3;l++){
+//                         cout<<" ";
+//                     }
+//                     cout<<"*";
+//                 }
+//             }
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+
+// Inverted Rigth angle pyramid
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter number of rows: ";
+//     cin>>rows;
+//     for (int i=rows;i>=0;i--){
+//         for (int x=1;x<=i;x++){
+//                 cout<<"*";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+
+// Hollow Inverted right angled pyramid stars
+// ************ Star formula ***********
+// int main(){
+//     int x=2;
+//     cout<<"*"<<string(5,' ')<<"*";
+
+// }
+// ************ end star formula ***********
+
+// Hollow right angle ivnerted
+// int main(){
+//     int rows;
+//     cout<<"Enter number of rows: ";
+//     cin>>rows;
+//     for (int x=0;x<=rows+2;x++){
+//             cout<<"*";
+//     }
+//     cout<<endl;
+//     for (int x=rows;x>0;x--){
+//         cout<<"*"<<string(x,' ')<<"*"<<endl;
+//     }
+//     cout<<"*";
+//     return 0;
+// }
+
+
+// Area of triangle using definition
+
+// void Rect(float l, float b){
+//     double area;
+//     area=l*b;
+//     cout<<"Area of triangle is "<<area;
+// }
+
+// int main(){
+//     float L,B;
+//     cout<<"Enter length of rectanlge: ";
+//     cin>>L;
+//     cout<<"Enter bredth of rectangle: ";
+//     cin>>B;
+//     Rect(L,B);
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+
 
