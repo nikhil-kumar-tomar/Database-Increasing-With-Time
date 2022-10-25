@@ -1,11 +1,14 @@
 //Libraries Used
 #include<iostream>
 #include<string>
+#include<sstream>
 #include<cmath>
 #include<algorithm>
 #include<list>
+#include<vector>
 #include<cctype>
 #include<map>
+#include<fstream>
 using namespace std;
  
 // cube root program //
@@ -1352,7 +1355,7 @@ using namespace std;
 //SOlid rectangel
 // int main(){
 //     int rows,columns;
-//     cout<<"Enter number of rows: ";
+//     cout<<"Enter the number: ";
 //     cin>>rows;
 //     cout<<"Enter number of columns: ";
 //     cin>>columns;
@@ -1368,7 +1371,7 @@ using namespace std;
 // Rigth angle pyramid
 // int main(){
 //     int rows,columns;
-//     cout<<"Enter number of rows: ";
+//     cout<<"Enter the number: ";
 //     cin>>rows;
 //     for (int i=1;i<=rows;i++){
 //         for (int x=1;x<=i;x++){
@@ -1382,7 +1385,7 @@ using namespace std;
 // Hollow Rectangle
 // int main(){
 //     int rows,columns;
-//     cout<<"Enter number of rows: ";
+//     cout<<"Enter the number: ";
 //     cin>>rows;
 //     cout<<"Enter number of columns: ";
 //     cin>>columns;
@@ -1416,7 +1419,7 @@ using namespace std;
 // Inverted Rigth angle pyramid
 // int main(){
 //     int rows,columns;
-//     cout<<"Enter number of rows: ";
+//     cout<<"Enter the number: ";
 //     cin>>rows;
 //     for (int i=rows;i>=0;i--){
 //         for (int x=1;x<=i;x++){
@@ -1427,19 +1430,11 @@ using namespace std;
 //     return 0;
 // }
 
-// Hollow Inverted right angled pyramid stars
-// ************ Star formula ***********
-// int main(){
-//     int x=2;
-//     cout<<"*"<<string(5,' ')<<"*";
-
-// }
-// ************ end star formula ***********
 
 // Hollow right angle ivnerted
 // int main(){
 //     int rows;
-//     cout<<"Enter number of rows: ";
+//     cout<<"Enter the number: ";
 //     cin>>rows;
 //     for (int x=0;x<=rows+2;x++){
 //             cout<<"*";
@@ -1453,30 +1448,497 @@ using namespace std;
 // }
 
 
-// Area of triangle using definition
 
-// void Rect(float l, float b){
-//     double area;
-//     area=l*b;
-//     cout<<"Area of triangle is "<<area;
-// }
-
+//centeresd pyramid
 // int main(){
-//     float L,B;
-//     cout<<"Enter length of rectanlge: ";
-//     cin>>L;
-//     cout<<"Enter bredth of rectangle: ";
-//     cin>>B;
-//     Rect(L,B);
+//     int rows,k;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     k=2*rows-2;
+//     for (int x=0;x<rows;x++){
+//         for (int j=0;j<k;j++){
+//             cout<<" ";
+//         }
+//         --k;
+//         for (int j = 0; j <= x; j++) {
+//             cout << "* ";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// } 
+
+
+// Inverted pyramids
+// int main(){
+//     int rows,k;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     k=2*rows-2;
+//     for (int x=rows;x>=0;x--){
+//         for (int j=k;j>0;j--){
+//             cout<<" ";
+//         }
+//         ++k;
+//         for (int j = 0; j <= x; j++) {
+//             cout << "* ";
+//         }
+//     cout<<endl;
+//     }
 //     return 0;
 // }
 
 
 
+// Hollow pyramid
+// int main(){
+//     int rows,k,l=2;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     k=2*rows-2;
+//     for (int x=0;x<rows;x++){
+//         for (int j=0;j<k;j++){
+//             cout<<" ";
+//         }
+//         --k;
+//         if (x<2){
+//         for (int j = 0; j <= x; j++) {
+//             cout << "* ";
+//         }
+//         }
+//         else{
+//             for (int j = 0; j <1; j++) {
+//             cout <<"* "<<string(l,' ')<<"*";
+//             l=l+2;
+//         }
+//         }
+//     cout<<endl;
+//     if(x==rows-1){
+//         cout <<string(k,' ');
+//         for (int j = 0; j <= x+1; j++) {
+//             cout <<"* ";
+//         }   
+//         }
+//     }
+//     return 0;
+// } 
+
+
+// number right angle pyramid
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     for (int i=1;i<=rows;i++){
+//         for (int x=1;x<=i;x++){
+//                 cout<<x<<" ";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+ 
+// inverted number pyramid
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     for (int i=rows;i>=0;i--){
+//         for (int x=1;x<=i;x++){
+//                 cout<<x<<" ";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+
+// Hollow number half pyramid
+// int main(){
+//     int rows,z;
+//     cout<<"Enter numbers: ";
+//     cin>>rows;
+//     int l=1;
+//     z=1;
+//     for (int x=0;x<rows-1;x++){
+//         if (x==0){
+//             cout<<l<<endl;
+//         }
+//         else{
+//         cout<<l<<string(z,' ')<<x+1<<endl;
+//         z=z+2;
+//         }
+//     }
+//     for (int x=0;x<rows;x++){
+//         if(x==0){
+//             cout<<l<<" ";
+//         }
+//         else{
+//         cout<<x+1<<" ";
+//         }
+//     }
+
+//     return 0;
+// }
+
+// full number pyramid
+
+// int main(){
+//     int rows,k,l;
+//     cout<<"Enter the number : ";
+//     cin>>rows;
+//     rows=rows*2;
+//     k=2*rows-2;
+//     k=k/2;
+//     int n=1;
+//     for (int x=0;x<rows;x++){
+//     if(x%2==0){
+//         for (int j=0;j<k;j++){
+//             cout<<" ";
+//         }
+//         k=k-2;
+//         for (int j = 1; j <= x+1; j++) {
+//             if(j<n){
+//                 if(j==1){
+//                         cout<<n<<" ";
+//                     }
+//                 else{
+//                     cout<<n+j-1<<" ";
+//                 }
+//             }
+//             else if(j==n){
+//                 l=n+j-1;
+//                 cout<<l<<" ";
+//             }
+//             else if(j>n){
+//                 --l;
+//                 cout<<l<<" ";
+
+//             }
+            
+//         }
+//     cout<<endl;
+//     n++;
+//     }
+//     else{
+//         continue;
+//     }
+//     }
+//     return 0;
+// }
+
+
+// Hollow full number pyramid
+
+// int main(){
+//     int rows,k,l=2,n=2;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     k=2*rows-2;
+//     for (int x=0;x<rows-1;x++){
+//         for (int j=0;j<k;j++){
+//             cout<<" ";
+//         }
+//         --k;
+//         if (x<2){
+//         for (int j = 1; j <= x+1; j++) {
+//             cout << j<<" ";
+//         }
+//         }
+//         else{
+//             for (int j = 0; j <1; j++) {
+//             ++n;
+//             cout <<1<<" "<<string(l,' ')<<n;
+//             l=l+2;
+//         }
+//         }
+//     cout<<endl;
+//     if(x==rows-2){
+//         cout <<string(k,' ');
+//         for (int j = 1; j <= x+2; j++) {
+//             cout <<j<<" ";
+//         }   
+//         }
+//     }
+//     return 0;
+// } 
+
+// Number pyramid stars
+
+// int main(){
+//     int rows,l=2,y;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     y=rows;
+//     for (int x=1;x<=rows;x++){
+//             cout<<x<<" ";
+//     }
+//     cout<<endl;
+//     for (int x=rows;x>2;x--){
+//         cout<<l<<string(y,' ')<<rows<<endl;
+//         ++l;
+//         y=y-2;
+//     }
+//     cout<<rows;
+//     return 0;
+// }
+
+
+// full Diamond
+
+// int main(){
+//     int rows,k,space;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     k=2*rows-2;
+//     space=rows-1;
+//         for (int x=0;x<rows;x++){
+//         cout<<string(space,' ');
+//         for (int j=0;j<k;j++){
+//             cout<<" ";
+//         }
+//         --k;
+//         for (int j = 0; j <= x; j++) {
+//             cout << "* ";
+//         }
+//     cout<<endl;
+//     }
+//     k=2*rows-2;
+//     for (int x=rows;x>=0;x--){
+//         for (int j=k;j>0;j--){
+//             cout<<" ";
+//         }
+//         ++k;
+//         for (int j = 0; j < x; j++) {
+//             cout << "* ";
+//         }
+//     cout<<endl;
+//     }
+//     return 0;
+// }
+
+
+// Hollow diamnond
+
+// int main(){
+//     int rows,k,l=2,space;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     k=2*rows-2;
+//     space=rows-1;
+//     for (int x=0;x<rows;x++){
+//         cout<<string(space,' ');
+//         for (int j=0;j<k;j++){
+//             cout<<" ";
+//         }
+//         --k;
+//         if (x<2){
+//         for (int j = 0; j <= x; j++) {
+//             cout << "* ";
+//         }
+//         }
+//         else{
+//             for (int j = 0; j <1; j++) {
+//             cout <<"* "<<string(l,' ')<<"*";
+//             l=l+2;
+//         }
+//         }
+//     cout<<endl;
+//     }
+//     // The upside down
+//     k=2*rows-2;
+//     l=rows+2;
+//     for (int x=rows;x>0;x--){
+//         for (int j=k;j>0;j--){
+//         cout<<" ";
+//         }
+//         ++k;
+//         if(l>0){
+//         for (int j = 0; j <1; j++) {
+//         cout <<"*"<<string(l,' ')<<"*";
+//         }
+//         }
+//         else{
+//             cout<<"*";
+//         }
+//     cout<<endl;
+//     l=l-2;
+//     }
+//     return 0;
+// } 
+
+
+// Half diamond 
+
+// int main(){
+//     int rows,columns;
+//     cout<<"Enter the number: ";
+//     cin>>rows;
+//     for (int i=1;i<=rows;i++){
+//         for (int x=1;x<=i;x++){
+//                 cout<<"*";
+//         }
+//     cout<<endl;
+//     }
+//     for (int i=rows;i>=0;i--){
+//     for (int x=1;x<=i;x++){
+//             cout<<"*";
+//     }
+//     cout<<endl;
+//     }
+
+//     return 0;
+// }
 
 
 
+// Tax calculator application
+// double taxcalculator(double income, double savings){
+//     double total,tax=0;
+//     total=savings+income;
+//     if (savings>=100000){
+//         total=total-100000;
+//     }
+//     else {
+//         total=total-savings;
+//     }
+//     //slab 0
+//     if (total<=100000){
+//         tax+=0;
+//     }
+//     //slab 1
+//     else if (total>100000 && total<=200000){
+//         tax+=0+(total-100000)*0.1;
+//     }
+//     //slab 2
+//     else if (total>200000 && total<=500000){
+//         tax+=0+10000+(total-200000)*0.2;
+//     }
+//     //slab 3
+//     else if (total>500000){
+//         tax+=0+10000+60000+(total-500000)*0.3;
+//     }
+//     return tax;
+// }
+// int main(){
+//     double income,savings;
+//     cout<<"Enter your total income: ";
+//     cin>>income;
+//     cout<<"Enter your savings: ";
+//     cin>>savings;
+//     if (savings>=0 && income>=0){
+//     cout<<"Your Net Tax is "<<taxcalculator(income,savings);
+//     }
+//     else{
+//         cout<<"Value entered are not workable";
+//     }
+//     return 0;
+//     }
 
 
 
+// Student management system
 
+void add_data(){
+    int roll_no;
+    string name,regis_no;
+    // file pointer
+    fstream fout;
+    // opens an existing csv file or creates a new file.
+    fout.open("Data.csv", ios::app);
+    cout<<"Enter roll No: ";
+    cin>>roll_no;
+    cout<<"Enter name: ";
+    cin.ignore();
+    getline(cin,name);
+    cout<<"Enter Registration No: ";
+    cin>>regis_no;
+    fout<<"\n"<<roll_no<<','<<name<<','<<regis_no;
+    cout<<"Data added succesfully";
+    fout.close();
+}
+
+void read_selected_data(){
+    int roll_no,roll2,count=0;
+    string name,regis_no;
+    // file pointer
+    fstream fin;
+    // opens an existing csv file or creates a new file.
+    fin.open("Data.csv", ios::in);
+    cout<<"Enter roll No: ";
+    cin>>roll_no;
+    vector<string> row;
+    string line, word, temp;
+  
+    while (!fin.eof()) {
+  
+        row.clear();
+  
+        getline(fin, line);
+  
+        // used for breaking words
+        stringstream s(line);
+        // read every column data of a row and
+        // store it in a string variable, 'word'
+        while (getline(s, word, ',')) {
+            // add all the column data
+            // of a row to a vector
+            row.push_back(word);
+        }
+  
+        // convert string to integer for comparision
+        roll2=stoi(row[0]);
+  
+        // Compare the roll number
+        if (roll2 == roll_no) {
+  
+            // Print the found data
+            count = 1;
+            cout << "Details Available Below: \n" ;
+            cout << "Roll no: " << row[0] << "\n";
+            cout << "Name: " << row[1] << "\n";
+            cout << "Registration No: " << row[2] << "\n";
+            break;
+        }
+    }
+    if (count == 0)
+        cout << "Record not found\n";
+    fin.close();
+}
+
+void read_all_data(){
+    int roll_no,roll2,count=0;
+    string name,regis_no;
+    // file pointer
+    fstream fin;
+    // opens an existing csv file or creates a new file.
+    fin.open("Data.csv", ios::in);
+    vector<string> row;
+    string line, word, temp;
+    cout<<"Roll no      Name        Registration No"<<endl;
+    while (!fin.eof()) {
+  
+        row.clear();
+  
+        getline(fin, line);
+  
+        // used for breaking words
+        stringstream s(line);
+        // read every column data of a row and
+        // store it in a string variable, 'word'
+        while (getline(s, word, ',')) {
+            // add all the column data
+            // of a row to a vector
+            row.push_back(word);
+        }
+        cout << row[0];
+        cout << "           "<<row[1];
+        cout << "           " << row[2] << "\n";
+    }
+    fin.close();
+}
+
+
+int main(){
+    read_all_data();
+    return 0;
+}
