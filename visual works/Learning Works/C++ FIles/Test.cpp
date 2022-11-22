@@ -1,7 +1,11 @@
 #include<iostream>
 #include<string>
 #include<map>
+#include<list>
+#include<fstream>
 #include <cmath>
+#include<vector>
+#include<sstream>
 using namespace std;
 // int main(){
 //     string x;
@@ -115,5 +119,110 @@ using namespace std;
 
 // int main(){
 //     factorial(6);
+//     return 0;
+// }
+
+// int main(){
+//     string deleteline;
+//     string line;
+
+//     ifstream fin;
+//     fin.open("E:\\Creative Works\\Visual Works\\Learning Works\\C++ FIles\\Homework\\Data.csv");
+//     ofstream temp;
+//     temp.open("E:\\Creative Works\\Visual Works\\Learning Works\\C++ FIles\\Homework\\temp.csv");
+//     cout << "Which line do you want to remove? ";
+//     cin >> deleteline;
+//     while (getline(fin,line))
+//     {
+//         if (line != deleteline)
+//         {
+//         temp << line << endl;
+//         }
+//     }
+
+//     temp.close();
+//     fin.close();
+//     remove("example.txt");
+//     rename("temp.txt","example.txt");
+
+//     return 0;
+// }
+// class nick{
+//     public:
+//         string lelo;
+//         string name(){
+//             cout<<lelo;
+//         }
+// };
+// int main(){
+//     nick n1;
+//     n1.lelo="Nice";
+//     cout<<n1.name();
+//     return 0;
+// }
+
+// int main(){
+//     int a=10;
+//     int *ptr=&a;
+//     cout<<ptr<<endl;
+//     cout<<*ptr<<endl;
+
+//     return 0;
+// }
+
+
+// class rectangle{
+//     public:
+//         int length,breadth;
+//         void setdim(int a,int b){
+//             length=a;
+//             breadth=b;
+//         }
+//         int area(){
+//             return length*breadth;
+//         }
+// };
+
+// int main(){
+
+//     rectangle op;
+//     op.setdim(4,5);
+//     cout<<op.area();
+//     return 0;
+// }
+
+
+// class Employee{
+//     public:
+//         float sal,number_hours_day;
+//         void getinfo(int salary,int hours_day){
+//             sal=salary;
+//             number_hours_day=hours_day;
+//         }
+//     private:
+//         void AddSal(){
+//             if (sal<500){
+//                 sal+=10;
+//             }
+//         }
+//         void AddWork(){
+//             if (number_hours_day>6){
+//                 sal+=5;
+//             }
+//         }
+//     public:
+//         int Finalsal(){
+//             AddSal();
+//             AddWork();
+//             return sal;
+//         }
+
+// };  
+
+// int main(){
+
+//     Employee p;
+//     p.getinfo(10,10);
+//     cout<<p.Finalsal();
 //     return 0;
 // }

@@ -1,19 +1,21 @@
-from operator import index
-import numpy as np
+#%%
+# imported libraries
 import pandas as pd
-# Converting dictionary it to data frame
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+# # Converting dictionary it to data frame
 # dict = {'English': [85, 73, 98], 'Math': [60, 80, 58],
 #         'Science': [90, 60, 74], 'French': [95, 87, 92]}
 # df = pd.DataFrame(dict, index=[2018, 2019, 2020])
-
-# French 92 to 29
+# # French 92 to 29
 # print('Modify a single value:')
 # print('\n')
 # df["French"][2020]=29
-# print(df)
 # print('\n')
-
-# Means of english and science
+# # Means of english and science
 # print("Mean of English is \n")
 # print((df["English"][2018]+df['English'][2019]+df['English'][2020])/3)
 # print("Mean of Science is \n")
@@ -274,3 +276,80 @@ import pandas as pd
 # df=pd.read_excel("Summer-Olympic-medals-1976-to-2008student.xlsx")
 # sydn_list=df.loc[(df["Sport"]=="Aquatics") & (df["Medal"]=="Gold") & (df["Gender"]=="Women") & (df["City"]=="Sydney")]
 # print(f"The number of gold medals won in Aquatics Sport by women from sydney are {len(sydn_list)}")
+
+# assignment 4 starts here
+# df=pd.read_excel("outlier_example2.xlsx")
+# data=df["Salary of Employee in Rs"]
+
+# for visualing box plot before removing outliars, please uncomment below lines for this
+# plt.boxplot(data)
+# plt.show
+# while(True):
+#     data=data.astype('float')
+#     data=data.sort_values()
+#     q1=data.quantile(0.25,interpolation='midpoint')
+#     q3=data.quantile(0.75,interpolation='midpoint')
+#     iqr=q3-q1
+
+#     lower_range = q1-1.5*iqr
+#     upper_range=q3+1.5*iqr
+#     print(upper_range)
+#     print(lower_range,upper_range)
+#     outlier_index=data.loc[data>upper_range].index.to_list()
+#     outlier_index.extend(data.loc[data<lower_range].index.to_list())
+#     for x in outlier_index:
+#         data=data.drop(x)
+#     if len(outlier_index)==0:
+#         break
+
+    
+# for visualising data after removing outliars, please uncomment below lines for this
+# plt.boxplot(data)
+# plt.show
+
+
+# Linear Regression Code
+# import pandas as pd
+# from matplotlib import pyplot as plt
+# import numpy as np
+# from sklearn import linear_model 
+
+# data = pd.read_csv("Salary_Data.csv")
+# X = data['YearsExperience']
+# Y = data['Salary']
+
+# X = np.array(X).reshape((len(X),1))
+# Y = np.array(Y).reshape((len(Y),1))
+# model = linear_model.LinearRegression()
+# model.fit(X,Y)
+# Y_pred = model.predict(X)
+
+
+# plt.figure()
+# plt.scatter(X, Y, color='black', label="Given Values")
+# plt.plot(X, Y_pred, color='green', linewidth=2, label="Prediction")
+# plt.xlabel("Experience in Years")
+# plt.ylabel("Salary in INR")
+# plt.title('Result of Training Data')
+# plt.legend()
+# plt.show()
+
+
+# K mean Cluster code
+df=pd.read_excel("Clusterdata.xlsx")
+df=df.dropna()
+wcss=[]
+x_axis=[]
+for x in range(1,30,1):
+    x_axis.append(x)
+    cluster=KMeans(n_clusters=x,init="k-means++",n_init=10,algorithm="lloyd")
+    cluster=cluster.fit(df)
+    wcss.append(cluster.inertia_)
+# uncomment below line one to see the Elbow Graph.
+# sns.lineplot(x=x_axis,y=wcss)
+# Value got from elbow graph is 15
+cluster=KMeans(n_clusters=15,init="k-means++",n_init=10,algorithm="lloyd")
+cluster=cluster.fit(df)
+sns.scatterplot(x='x', y='y',data=df, hue=cluster.labels_,palette=sns.color_palette("husl", len(set(cluster.labels_)))).set_title('After figuring 15 as clusters')
+plt.scatter(cluster.cluster_centers_[:,0],cluster.cluster_centers_[:,1],color="black",marker="x",label='Centroids')
+# %%

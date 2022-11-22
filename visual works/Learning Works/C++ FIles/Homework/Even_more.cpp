@@ -2070,49 +2070,309 @@ using namespace std;
 
 
 // Assignment 7
-int main(){
-    int row_a,col_a,row_b,col_b,temp_int;
-    cin.clear();
-    cout<<"Enter for Matrix A"<<endl;
-    cout<<"Enter the Row of matrix A: ";
-    cin>>row_a;
-    cout<<"Enter the Columns of matrix A: ";
-    cin>>col_a;
-    cout<<"Enter for Matrix B"<<endl;
-    cout<<"Enter the Row of matrix B: ";
-    cin>>row_b;
-    cout<<"Enter the Columns of matrix B: ";
-    cin>>col_b;
-    if (row_a==row_b && col_a==col_b){
-        int arr_a[row_a][col_a],arr_b[row_b][col_b],fin[row_a][col_a];
-        cout<<"Now for Matrix A"<<endl;
-        for(int i = 0; i < row_a; i++){
-            for(int j = 0; j < col_a; j++){
-                cout<<"Enter element for Matrix A position "<<"["<<i<<","<<j<<"] ";
-                cin >> arr_a[i][j];
-        }
-        }
-        cout<<"Now for Matrix B"<<endl;
-        for(int i = 0; i < row_b; i++){
-            for(int j = 0; j < col_b; j++){
-                cout<<"Enter element for Matrix B position "<<"["<<i<<","<<j<<"] ";
-                cin >> arr_b[i][j];
-        }
-        }
-        for(int i = 0; i < row_a; i++){
-            for(int j = 0; j < col_a; j++){
-                fin[i][j]=arr_a[i][j]-arr_b[i][j];
-        }
-        }
-        for(int i = 0; i < row_a; i++){
-            for(int j = 0; j < col_a; j++){
-                cout<<fin[i][j]<<" ";
-        }
-        cout<<endl;
-        }
-}
-    else{
-    cout<<"Dimensions of the Matrices are not the same, Operations are not possible";
-    }
-    return 0;
-}
+// int main(){
+//     int row_a,col_a,row_b,col_b,temp_int;
+//     cin.clear();
+//     cout<<"Enter for Matrix A"<<endl;
+//     cout<<"Enter the Row of matrix A: ";
+//     cin>>row_a;
+//     cout<<"Enter the Columns of matrix A: ";
+//     cin>>col_a;
+//     cout<<"Enter for Matrix B"<<endl;
+//     cout<<"Enter the Row of matrix B: ";
+//     cin>>row_b;
+//     cout<<"Enter the Columns of matrix B: ";
+//     cin>>col_b;
+//     if (row_a==row_b && col_a==col_b){
+//         int arr_a[row_a][col_a],arr_b[row_b][col_b],fin[row_a][col_a];
+//         cout<<"Now for Matrix A"<<endl;
+//         for(int i = 0; i < row_a; i++){
+//             for(int j = 0; j < col_a; j++){
+//                 cout<<"Enter element for Matrix A position "<<"["<<i<<","<<j<<"] ";
+//                 cin >> arr_a[i][j];
+//         }
+//         }
+//         cout<<"Now for Matrix B"<<endl;
+//         for(int i = 0; i < row_b; i++){
+//             for(int j = 0; j < col_b; j++){
+//                 cout<<"Enter element for Matrix B position "<<"["<<i<<","<<j<<"] ";
+//                 cin >> arr_b[i][j];
+//         }
+//         }
+//         for(int i = 0; i < row_a; i++){
+//             for(int j = 0; j < col_a; j++){
+//                 fin[i][j]=arr_a[i][j]-arr_b[i][j];
+//         }
+//         }
+//         for(int i = 0; i < row_a; i++){
+//             for(int j = 0; j < col_a; j++){
+//                 cout<<fin[i][j]<<" ";
+//         }
+//         cout<<endl;
+//         }
+// }
+//     else{
+//     cout<<"Dimensions of the Matrices are not the same, Operations are not possible";
+//     }
+//     return 0;
+// }
+
+// Assignment 8
+
+// Question 1
+
+// int func(int* sptr){
+//     return *sptr;
+// }
+// int main(){
+//     int a;;
+//     cout<<"Enter your number: ";
+//     cin>>a;
+//     int* ptr=&a;
+//     cout<<func(ptr);
+//     return 0;
+//}
+
+
+// Question 2
+
+// int fact(int z){
+//     if (z>=1){
+//     return z* fact(z-1);
+//     }
+//     else if (z==0){
+//         return 1;
+//     }
+// }
+// int func(int* sptr){
+//     int z;
+//     z=*sptr;
+//     return fact(z);
+// }
+// int main(){
+//     int a;;
+//     cout<<"Enter your number: ";
+//     cin>>a;
+//     int* ptr=&a;
+//     cout<<func(ptr);
+//     return 0;
+// }
+
+// Question 3
+
+// int func(int* sptr){
+//     int z;
+//     z=*sptr;
+//     int reverse = 0;
+//     while (z > 0) {
+//         reverse = reverse * 10 + z%10;
+//         z = z / 10;
+//     }
+//     return reverse;
+// }
+// int main(){
+//     int a;
+//     string nice="Hello";
+//     cout<<"Enter your number: ";
+//     cin>>a;
+//     int* ptr=&a;
+//     cout<<func(ptr);
+//     return 0;
+// }
+
+
+// Question 4
+
+// void func(int* a,int* b,int* c){
+//     int z[3]={*a,*b,*c};
+//     int max,min;
+//     max=z[0];
+//     min=z[0];
+//     for (auto x:z){
+//         if (x>max){
+//             max=x;
+//         }
+//         else if (x < min){
+//             min=x;
+//         }
+//     }
+//     cout<<"Maximum number is "<<max<<endl<<"Minimum number is "<<min;
+// }
+
+// int main(){
+//     int a,b,c;
+//     string nice="Hello";
+//     cout<<"Enter your first number: ";
+//     cin>>a;
+//     cout<<"Enter your second number: ";
+//     cin>>b;
+//     cout<<"Enter your third number: ";
+//     cin>>c;
+//     int* ptr1=&a;
+//     int* ptr2=&b;
+//     int* ptr3=&c;
+//     func(ptr1,ptr2,ptr3);
+//     return 0;
+// }
+
+
+
+
+// Question 5
+
+// int main(){
+//     int n,max;
+//     cout<<"Enter the size of data set in integers: ";
+//     cin>>n;
+//     int arr[n];
+//     cout<<"Time to add values"<<endl;
+//     for (int i=0;i<n;i++){
+//         cout<<"Enter value for "<<i+1<<" position: ";
+//         cin>>arr[i];
+//     }
+//     max=arr[0];
+//     for (auto x:arr){
+//         if (x>max){
+//             max=x;
+//         }
+//     }
+//     int* ptr=&max;
+//     cout<<endl;
+//     cout<<"The memory address of maximum number pointer is "<<ptr<<endl<<"Value of pointer is "<<*ptr;
+
+//     return 0;
+// }
+
+//Question 6
+
+// int main(){
+//     char a[]="aeiou = 5 ";
+//     char* ptr;
+//     ptr=a;
+//     int vowel=0;
+//     for (ptr;(*ptr) !='\0';ptr++){
+//         if (*ptr=='a' || *ptr=='e' || *ptr=='i' || *ptr=='o' || *ptr=='u'){
+//             vowel++;
+//         }
+//     }
+//     cout<<"number of vowel is: "<<vowel;
+//     return 0;
+// }
+
+// Question 7
+
+// int main(){
+//     int a[]={1,2,3,4,5};
+//     int* ptr;
+//     int sum=0;
+//     cout<<"array is ";
+//     for (int i=0;i<sizeof(a)/sizeof(a[0]);i++){
+//         ptr=&a[i];
+//         cout<<*ptr<<",";
+//         sum+=*ptr;
+//     }
+//     cout<<endl<<"Sum of all elements in array is "<<sum;
+//     return 0;
+// }
+
+// Assignment 9
+
+// Question 1
+// class maxi{
+//     int a,b,c;
+//     public:
+//         maxi(int l, int m, int n){
+//             a=l;
+//             b=m;
+//             c=n;
+//         }
+//         int max_display(){
+//             int max;
+//             int arr[]={a,b,c};
+//             max=arr[0];
+//             for (auto x: arr){
+//                 if (x>max){
+//                     max=x;
+//                 }
+//             }
+//             return max;
+//         }
+
+// };
+
+// int main(){
+//     int a,b,c;
+//     cout<<"Enter first number: ";
+//     cin>>a;
+//     cout<<"Enter first number: ";
+//     cin>>b;
+//     cout<<"Enter first number: ";
+//     cin>>c;
+//     maxi x(a,b,c);
+//     cout<<"Max number among all the number is "<<x.max_display();
+//     return 0;
+// }
+
+
+// Question 2
+
+// class maxi{
+//     int calls=0;
+//     public:
+//         int max(){
+//             calls++;
+//         }
+//         int value(){
+//             return calls;
+//         }
+
+// };
+
+// int main(){
+//     int choic;
+//     cout<<"Enter number of times you want to run a function with a object: ";
+//     cin>>choic;
+//     maxi m;
+//     for (int i=0;i<choic;i++){
+//         m.max();
+//     }
+//     cout<<m.value();
+//     return 0;
+// }
+
+// Question 3
+
+// class Employee{
+//     public:
+//         float sal,number_hours_day;
+//         void getinfo(int salary,int hours_day){
+//             sal=salary;
+//             number_hours_day=hours_day;
+//         }
+//     private:
+//         void AddSal(){
+//             if (sal<500){
+//                 sal+=10;
+//             }
+//         }
+//         void AddWork(){
+//             if (number_hours_day>6){
+//                 sal+=5;
+//             }
+//         }
+//     public:
+//         int Finalsal(){
+//             AddSal();
+//             AddWork();
+//             return sal;
+//         }
+
+// };  
+
+// int main(){
+
+//     Employee p;
+//     p.getinfo(5,7);
+//     cout<<p.Finalsal();
+//     return 0;
+// }
