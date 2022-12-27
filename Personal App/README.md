@@ -24,16 +24,23 @@ This option requires a roll number, filling roll number will show pre-populated 
  
  
 # Configuration for Backend applications# Django Admin Page
+
 admin page at: localhost:8000/admin
+
 Username: admin
+
 Password: Nick@123
  
  
 # MySQL Database configurations
 Database Name: personal
+
 Database User: root
+
 Database Password: 123456789
+
 Database Host: localhost
+
 Database Port: 3306
  
  
