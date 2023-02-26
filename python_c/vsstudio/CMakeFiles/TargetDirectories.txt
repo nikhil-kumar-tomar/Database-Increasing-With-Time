@@ -1,0 +1,5 @@
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio/CMakeFiles/pybind11app.dir
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio/CMakeFiles/pybind11module.dir
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio/CMakeFiles/ALL_BUILD.dir
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio/CMakeFiles/ZERO_CHECK.dir
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio/externals/pybind11/CMakeFiles/ALL_BUILD.dir

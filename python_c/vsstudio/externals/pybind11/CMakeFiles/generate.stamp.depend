@@ -1,0 +1,20 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/CMakeDependentOption.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/CMakeParseArguments.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/CheckCXXCompilerFlag.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/CheckCXXSourceCompiles.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/FindPackageMessage.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/FindPythonInterp.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/GNUInstallDirs.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/Internal/CheckCompilerFlag.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/Internal/CheckFlagCommonConfig.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake
+D:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/externals/pybind11/CMakeLists.txt
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/externals/pybind11/tools/FindPythonLibsNew.cmake
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/externals/pybind11/tools/JoinPaths.cmake
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/externals/pybind11/tools/pybind11Common.cmake
+E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/externals/pybind11/tools/pybind11Tools.cmake

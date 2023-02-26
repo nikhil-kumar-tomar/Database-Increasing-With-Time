@@ -1,0 +1,10 @@
+^E:\CREATIVE WORKS\VISUAL WORKS\LEARNING WORKS\PYTHON FILES\PYTHON_C\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SE:/Creative Works/Visual Works/Learning Works/Python FIles/python_c" "-BE:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio" --check-stamp-file "E:/Creative Works/Visual Works/Learning Works/Python FIles/python_c/vsstudio/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
