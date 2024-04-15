@@ -514,57 +514,59 @@
 
 # Heapsort Max Heap
 
-def max_heapify(arr, N, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+# def max_heapify(arr, N, i):
+#     largest = i
+#     left = 2 * i + 1
+#     right = 2 * i + 2
 
-    if left < N and arr[left] > arr[largest]:
-        largest = left
-    if right < N and arr[right] > arr[largest]:
-        largest = right
+#     if left < N and arr[left] > arr[largest]:
+#         largest = left
+#     if right < N and arr[right] > arr[largest]:
+#         largest = right
     
-    if largest != i: 
-        arr[i], arr[largest] = arr[largest], arr[i]
-        max_heapify(arr, N, largest)
+#     if largest != i: 
+#         arr[i], arr[largest] = arr[largest], arr[i]
+#         max_heapify(arr, N, largest)
 
-def min_heapify(arr, N, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+# def min_heapify(arr, N, i):
+#     largest = i
+#     left = 2 * i + 1
+#     right = 2 * i + 2
 
-    if left < N and arr[left] < arr[largest]:
-        largest = left
-    if right < N and arr[right] < arr[largest]:
-        largest = right
+#     if left < N and arr[left] < arr[largest]:
+#         largest = left
+#     if right < N and arr[right] < arr[largest]:
+#         largest = right
     
-    if largest != i: 
-        arr[i], arr[largest] = arr[largest], arr[i]
-        min_heapify(arr, N, largest)
+#     if largest != i: 
+#         arr[i], arr[largest] = arr[largest], arr[i]
+#         min_heapify(arr, N, largest)
 
 
-def heap_sort(arr:list, size:int, type_of_heapsort:str):
+# def heap_sort(arr:list, size:int, type_of_heapsort:str):
 
-    if type_of_heapsort.lower() == "max":
-        heap_function = max_heapify
-    elif type_of_heapsort.lower() == "min":
-        heap_function = min_heapify
-    else:
-         return f"{type_of_heapsort} is not applicable, choose between \"min\" and \"max\""
+#     if type_of_heapsort.lower() == "max":
+#         heap_function = max_heapify
+#     elif type_of_heapsort.lower() == "min":
+#         heap_function = min_heapify
+#     else:
+#          return f"{type_of_heapsort} is not applicable, choose between \"min\" and \"max\""
 
-    for largest in range(size//2 - 1, -1, -1):
-        heap_function(arr, size, largest)
+#     for largest in range(size//2 - 1, -1, -1):
+#         heap_function(arr, size, largest)
 
-    array = []
-    for element in range(size-1, -1, -1):
-        arr[element], arr[0] = arr[0], arr[element]
-        array.append(arr.pop())
+#     array = []
+#     for element in range(size-1, -1, -1):
+#         arr[element], arr[0] = arr[0], arr[element]
+#         array.append(arr.pop())
 
-        heap_function(arr, len(arr), 0)
+#         heap_function(arr, len(arr), 0)
 
-    return array
+#     return array
 
-arr = [4, 5, 3, 10, 1, 6, 9]
-size = len(arr)
+# arr = [4, 5, 3, 10, 1, 6, 9]
+# size = len(arr)
 
-print(heap_sort(arr=arr, size=len(arr), type_of_heapsort="max"))
+# print(heap_sort(arr=arr, size=len(arr), type_of_heapsort="max"))
+
+
