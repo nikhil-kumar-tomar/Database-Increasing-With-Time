@@ -1813,7 +1813,599 @@
 # print(minimum_binary_search(nums,0,len(nums)-1))
 
 
+# def single_search(array, low, high):
+#     total_high = high
+
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if ((mid == len(array)-1 or (array[mid + 1] != array[mid])) 
+#             and (mid == 0 or (array[mid - 1] != array[mid]))):
+#             return array[mid]
+#         else:
+#             if mid > 0 and array[mid - 1] == array[mid]:
+#                 if (total_high - (mid - 2)) % 2 == 0:
+#                     high = mid - 1
+#                 else:
+#                     low = mid + 1
+#             else:
+#                 if (total_high - (mid - 1)) % 2 == 0:
+#                     high = mid - 1
+#                 else:
+#                     low = mid + 1
+#     return -1
+
+# nums = [1,1,2,3,3,4,4,8,8]
+
+# print(single_search(nums, 0, len(nums) - 1))
+
+# peak element
+
+# def peak_search(array, low, high):
+
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if (mid == 0 or array[mid] > array[mid - 1]) and (mid == len(array)-1 or array[mid] > array[mid + 1]):
+#             return mid
+#         else:
+#             if array[mid - 1] > array[mid] and mid > 0:
+#                 high = mid - 1
+#             elif array[mid + 1] > array[mid] and mid < len(array)-1:
+#                 low = mid + 1
+
+#     return -1
+
+# nums = [1,2]
+# print(peak_search(nums, 0, len(nums)- 1))
+
+
+# def sqrt_binary_search(number, low, high):
+#     sqrt = 1
+
+#     while low <= high:
+#         mid = (low + high) // 2
+
+#         if mid * mid > number:
+#             high = mid - 1
+#         else:
+#             sqrt = mid
+#             low = mid + 1
+
+#     return sqrt
+
+# print(sqrt_binary_search(8,0,8))
+
+# def pow_exponentiation(number, power):
+#     if power == 0:
+#         return 1
+#     elif power == 1:
+#         return number
+#     elif power == -1:
+#         return 1 / number
+
+    
+#     if power % 2 == 0:
+#         nums = pow_exponentiation(number, power // 2)
+#         return  nums * nums
+#     else:
+#         nums = pow_exponentiation(number, (power - 1) // 2)
+#         return number * nums * nums
+    
+# print(pow_exponentiation(2, -2))
+
+
+# Count Good Numebrs
+# def good_nums(index):
+#     if index == 0:
+#         return ['0','2','4','6','8']
+    
+#     if index % 2 == 0:
+#         temp = []
+#         for x in good_nums(index - 1):
+#             for l in ['0','2','4','6','8']:
+#                 temp.append(x + l)
+#         return temp
+#     else:
+#         temp = []
+#         for x in good_nums(index - 1):
+#             for l in ['2','3','5','7']:
+#                 temp.append(x + l)
+#         return temp
+
+# print(good_nums())
+
+# Good Nums O(log(N)) approach, Found myself 
+# n = 806166225460393
+
+# def pow_exponentiation(number, power):
+#     if power == 0:
+#         return 1
+#     elif power == 1:
+#         return number
+#     elif power == -1:
+#         return 1 / number
+    
+#     if power % 2 == 0:
+#         nums = pow_exponentiation(number, power // 2) % ((10**9) + 7)
+#         return  nums * nums
+#     else:
+#         nums = pow_exponentiation(number, (power - 1) // 2) % ((10**9) + 7)
+#         return number * nums * nums
+
+# fours = n // 2
+# fives = n - fours
+
+# print()
+# print(pow_exponentiation(4, fours) * pow_exponentiation(5, fives) % ((10**9) + 7)
+# )
 
 
 
+
+# stack = [5,4,3,2,1]
+# def sort(stack):
+#     if len(stack) == 1:
+#         return stack
+    
+#     curr_element = stack.pop()
+#     sorted_stack = sort(stack)
+#     temp_stack = []
+#     while len(stack) >0 and stack[-1] > curr_element:
+#         temp_stack.append(stack.pop())
+#     stack.append(curr_element)
+    
+#     while len(temp_stack) > 0 :
+#         stack.append(temp_stack.pop())
+    
+#     return stack
+
+# print(sort(stack))
+
+# def insert_at_last(stack, element):
+#     if len(stack) == 0:
+#         stack.append(element)
+#         return stack
+#     curr_element = stack.pop()
+#     stack = insert_at_last(stack, element)
+#     stack.append(curr_element)
+#     return stack
+
+# def reverseStack(stack: list[int]) -> None:
+#     if len(stack) == 1:
+#         return stack
+    
+#     curr_element = stack.pop()
+#     stack = reverseStack(stack)
+#     stack = insert_at_last(stack, curr_element)
+#     return stack
+
+# reverseStack(stack)
+# print(stack)
+
+
+# def binary_strings(n, string, all):
+#     if len(string) == n:
+#         all.append(string)
+#         return 
+    
+#     if len(string) > 0 and string[-1] == '1':
+#         binary_strings(n, string+'0', all)
+#     else:
+#         binary_strings(n, string + '0', all)
+#         binary_strings(n, string + '1', all)
+    
+# all = []
+# binary_strings(3, "", all)
+# print(all)
+
+# def binary_search_lowans(array, target):
+#     low = 0 
+#     high = len(array) - 1
+#     ans_arr= [-1, -1]
+
+#     lows = False
+#     small = -1
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if array[mid] == target:
+#             lows = True
+#             ans_arr[0] = mid + 1
+#             break
+#         elif array[mid] < target:
+#             small = mid
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+#     if not lows:
+#         ans_arr[0] = small + 1
+    
+#     low = 0 
+#     high = len(array) -1
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if array[mid] == target:
+#             ans_arr[1] = mid
+#             break
+#         elif array[mid] < target:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+
+#     return ans_arr
+
+
+# def binary_search_ans(array, low, high, k):
+    
+#     while low <= high:
+#         mid = (low + high) // 2
+#         present_nums, index = binary_search_lowans(array, mid)
+#         missing_elements =  mid - present_nums
+        
+#         if missing_elements == k and index == -1:
+#             return mid
+#         elif missing_elements < k:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+        
+
+# print(binary_search_ans([2,4,5,12,5], 1, 1000, 5))
+# def binary_src_answer(low, high, k):
+
+
+# Generate Parenthesis
+
+# def generate_parenthesis(n, string, opens, closes, arr):
+#     if closes > opens:
+#         return
+#     elif len(string) == n:
+#         if opens == closes:
+#             arr.append(string)
+#         return
+    
+#     generate_parenthesis(n, string+'(',opens+1, closes, arr)
+#     generate_parenthesis(n, string+')',opens, closes+1, arr)
+
+# arr = []
+# generate_parenthesis(6, '(', 1,0,arr)
+# print(arr)
+
+# Subsets
+
+# def generate_subsets(array, selected_array, i, arr):
+#     print(selected_array)
+#     if i == len(array):
+#         arr.append(selected_array)
+#         return
+
+#     selected_array.append(array[i])
+#     generate_subsets(array, selected_array.copy() ,i+1, arr)
+#     selected_array.pop()
+#     generate_subsets(array, selected_array.copy(),i+1, arr)
+
+# arr = []
+# generate_subsets([1,2,2], [], 0, arr)
+# print(arr)
+
+# def fibonacci(n, hashm):
+#     if n == 0:
+#         return 0
+#     elif n == 1:
+#         return 1
+#     else:
+#         if hashm.get(n-1) == None:
+#             hashm[n-1] = fibonacci(n-1, hashm)
+#         if hashm.get(n-2) == None:
+#             hashm[n-2] = fibonacci(n-2, hashm)
+        
+#         return hashm[n-1] + hashm[n-2]
+    
+# hashm = {}
+# print(fibonacci(50, hashm))
+# print(hashm)
+
+
+# def generate_substrings(array, selected_array, i, arr):
+#     if i == len(array):
+#         arr.add(selected_array)
+#         return
+
+#     generate_substrings(array, selected_array + array[i], i+1, arr)
+#     generate_substrings(array, selected_array,i+1, arr)
+
+# def moreSubsequence(a: str, b:str) -> str:
+#     arr1 = set()
+#     arr2 = set()
+#     generate_substrings(a, "", 0, arr1)
+#     generate_substrings(b,"",0, arr2)
+
+#     print(arr1)
+#     print(arr2)
+#     if len(arr2) > len(arr1):
+#         return b
+#     else:
+#         return a
+# moreSubsequence("abc", "dddd")
+
+# def subarray(array, low, high, target, new_arr, sums, arr):
+#     if sums == target:
+#         arr.append(new_arr)
+#         return
+#     elif high >=len(array) or sums > target:
+#         return 
+#     else:
+#         for i in range(low, high+1):
+#             subarray(array, i+1, i+1, target, new_arr+[array[i]], sums+array[i], arr)
+#         return
+
+
+# A = [1, 2, 3, 1, 1, 1]
+# k = 3
+# arr = []
+# subarray(A, 0, len(A)-1, k, [], 0, arr)
+# print(arr)
+
+# def subsets_sum_k(array, i, k, target):
+#     if k == target:
+#         return True
+#     elif i >= len(array) or k > target:
+#         return False
+
+#     if subsets_sum_k(array, i+1, k + array[i], target) == True:
+#         return True
+#     elif subsets_sum_k(array, i+1, k, target) == True:
+#         return True
+    
+#     return False
+
+# print(subsets_sum_k([1,2,3], 0, 0, 4))
+
+
+# def combination_sum(array, low, high, new_arr, sums, target, arr):
+#     if sums == target:
+#         arr.append(new_arr)
+#         return
+#     elif sums > target or high >= len(array):
+#         return 
+#     prev_i = None
+#     for i in range(low, high + 1):
+#         if array[i] != prev_i:
+#             combination_sum(array, i+1, high, new_arr+[array[i]], sums + array[i], target, arr)
+#             prev_i = array[i]
+#     return None
+
+# arr = []
+# array = [10,1,2,7,6,1,5]
+# array.sort()
+# combination_sum(array, 0, len(array)-1, [],0,8, arr)
+# print(arr)
+
+# Generate subset sum questions
+
+# def generate_subsets(array, sums, i, arr):
+#     if i == len(array):
+#         arr.append(sums)
+#         return
+
+#     generate_subsets(array, sums + array[i], i+1, arr)
+#     generate_subsets(array, sums, i+1, arr)
+
+
+# def generate_subsets(array, low, high, new_arr, arr):
+#     if low > len(array)-1:
+#         arr.append(new_arr)
+#         return
+
+#     prev_i = None
+#     for i in range(low, high + 2):
+#         if i >= len(array):
+#             generate_subsets(array, i+1, high, new_arr, arr)
+
+#         elif array[i] != prev_i:
+#             generate_subsets(array, i+1, high, new_arr+[array[i]], arr)
+#             prev_i = array[i]
+
+# nums = [1,2,2]
+# arr = []
+# low = 0
+# high = 2
+# generate_subsets(nums, low, high, [], arr)
+# print(arr)
+
+
+# COmbinations 3
+# def combinations(array, selected_array, i, sums, target_len, target_sum, arr:list):
+#     if sums == target_sum and len(selected_array) == target_len:
+#         arr.append(selected_array)
+#         return
+#     elif sums > target_sum or len(selected_array) > target_len or i >= len(array):
+#         return
+    
+#     combinations(array,selected_array+[array[i]], i+1, sums+array[i], target_len, target_sum, arr)
+#     combinations(array,selected_array, i+1, sums, target_len, target_sum, arr)
+
+# array = [x for x in range(1,10)]
+# target_len = 4
+# target_sum = 1
+# arr = []
+# combinations(array, [], 0, 0, target_len, target_sum, arr)
+# print(arr)
+
+
+# hashmap = {
+#     '2':['a','b','c'],
+#     '3':['d','e','f'],
+#     '4':['g','h','i'],
+#     '5':['j','k','l'],
+#     '6':['m','n','o'],
+#     '7':['p','q','r','s'],
+#     '8':['t','u','v'],
+#     '9':['w','x','y','z']
+# }
+
+# def phone_pad(array, i, string, arr):
+#     if i >= len(array):
+#         if string != "":
+#             arr.append(string)
+#         return
+    
+#     char_arr = hashmap[array[i]]
+
+#     for char in char_arr:
+#         phone_pad(array, i+1, string+char, arr)
+
+# array = ""
+# i = 0
+# arr = []
+# phone_pad(array, i, "",arr)
+# print(arr)
+
+# def is_palind(string, low, high):
+
+#     while low < high:
+#         if string[low] != string[high]:
+#             return False
+#         low +=1
+#         high -=1
+        
+#     return True
+
+# def palindrome(string, index, arr, final_all):
+#     if index == len(string):
+#         final_all.append(arr)
+#         return
+
+#     for i in range(index, len(string)):
+#         if is_palind(string, index, i):
+#             palindrome(string, i+1, arr + [string[index:i+1]], final_all)
+
+
+# string = "bb"
+# final_all = []
+# palindrome(string, 0, [], final_all)
+# print(final_all)
+
+# Word Search
+# def string_match(string, index, matrix, visited_matrix, curr_row, curr_col, wrapper): 
+
+#     if (curr_col < 0 or curr_col > (len(matrix[0])-1) or
+#         curr_row < 0 or curr_row > (len(matrix)-1) or
+#         visited_matrix[curr_row][curr_col] == 1 or
+#         matrix[curr_row][curr_col] != string[index]
+#         ):
+#         return
+#     if index == len(string) - 1 and matrix[curr_row][curr_col] == string[index]:
+#         wrapper[0] = True
+#         return
+
+
+#     visited_matrix[curr_row][curr_col] = 1
+#     string_match(string, index + 1, matrix, visited_matrix, curr_row-1, curr_col, wrapper)
+#     string_match(string, index + 1, matrix, visited_matrix, curr_row+1, curr_col, wrapper)
+#     string_match(string, index + 1, matrix, visited_matrix, curr_row, curr_col-1, wrapper)
+#     string_match(string, index + 1, matrix, visited_matrix, curr_row, curr_col+1, wrapper)
+
+#     visited_matrix[curr_row][curr_col] = 0
+
+
+# board = [["A","B","C","E"],["S","F","E","S"],["A","D","E","E"]]
+# VISISTED_MATRIX = [[0 for x in range(len(row))] for row in board]
+# string = "ABCESEEEFS"
+# index = 0
+
+# arr = [False]
+
+# for row in range(len(board)):
+#     for col in range(len(board[0])):
+#         visited_matrix = [x.copy() for x in VISISTED_MATRIX]
+#         string_match(string, index, board, visited_matrix, row, col, arr)
+#         if arr[0] == True:
+#             break
+
+# print(arr[0])
+
+# print(False)
+
+
+
+
+# n Queens
+
+# def safe(valid_list, queen_params, i):
+#     new_set = []
+    
+#     for element in valid_list:
+#         is_valid = True
+#         for x in queen_params:
+#             diagonal_arr = [abs(element[0]-x[0]), abs(element[1]-x[1])]
+#             if (element[0] == x[0] or element[1] == x[1] or diagonal_arr[0] == diagonal_arr[1] or element[0] != i+1) :
+#                 is_valid = False
+
+#         if is_valid:
+#             new_set.append(element)
+
+#     return new_set
+
+
+# def queen(n, i, valid_list, running_array, final_arr):
+#     if i+1 == n:
+#         arr=[]
+#         for element in running_array:
+#             string = ""
+#             for x in range(n):
+#                 if x == element[1]:
+#                     string += "Q"
+#                 else:
+#                     string += "."
+#             arr.append(string)
+#         final_arr.append(arr)
+#         return 
+    
+    
+
+#     for x in safe(valid_list, running_array, i):
+#         running_array.append(x)
+#         queen(n, i+1, valid_list, running_array, final_arr)
+#         running_array.pop()
+#     return
+
+
+# n = 5
+# lis = [(x,y) for x in range(n) for y in range(n)]
+# final_arr = []
+# # print(safe(lis, [(0,1),(1,3),(2,0),(3,2)],2))
+# for row in range(n):
+#         queen(n, 0, lis, [(0,row)],  final_arr)
+# print(final_arr)
+
+# Rat in a maze
+
+# def rat(mat, visited_mat, curr_row, curr_col, string, final_arr):
+#     if (
+#         curr_row < 0 or curr_row > len(mat)-1 or
+#         curr_col < 0 or curr_col > len(mat[0])-1 or
+#         mat[curr_row][curr_col] == 0 or
+#         visited_mat[curr_row][curr_col] == 1
+#     ):
+#         return
+#     elif curr_row == len(mat)-1 and curr_col == len(mat[0])-1:
+#         final_arr.append(string)
+#         return
+    
+#     visited_mat[curr_row][curr_col] = 1
+#     rat(mat, visited_mat, curr_row+1, curr_col, string+"D", final_arr)
+#     rat(mat, visited_mat, curr_row-1, curr_col, string+"U", final_arr)
+#     rat(mat, visited_mat, curr_row, curr_col+1, string+"R", final_arr)
+#     rat(mat, visited_mat, curr_row, curr_col-1, string+"L", final_arr)
+#     visited_mat[curr_row][curr_col] = 0
+
+
+# mat = [
+# [1,1],
+# [1,0]
+# ]
+
+# visited_mat = [[0 for x in range(len(y))] for y in mat]
+# final_arr = []
+# rat(mat, visited_mat, 0, 0, "", final_arr)
+# print(final_arr)
 
