@@ -1711,19 +1711,23 @@
 # last_index(array, -1, 0, to_find)
 
 
-# Incomplete Rat Chase question, We need a approach and we need to think.
-# def rat_chase(cur_row, cur_col, dest_row, dest_col, path, mat):
-#     if cur_col > dest_col or cur_row > dest_row or mat[cur_row][cur_col] == 'X' or mat[cur_row][cur_col] == 'R':
+# Rat Chase question
+# def rat_chase(cur_row, cur_col, dest_row, dest_col, mat, visited):
+#     if (cur_col > dest_col or cur_col < 0 or
+#         cur_row > dest_row or cur_row < 0 or
+#         mat[cur_row][cur_col] == 'X' or 
+#         visited[cur_row][cur_col] == 1):
 #         return
 #     elif cur_col == dest_col and cur_row == dest_row:
-#         print(path)
+#         print(visited)
 #         return
     
-#     rat_chase(cur_row + 1, cur_col ,dest_row ,dest_col, path+f"{cur_row},{cur_col} ", mat)
-#     rat_chase(cur_row, cur_col + 1 ,dest_row ,dest_col, path+f"{cur_row},{cur_col} ", mat)
-#     rat_chase(cur_row - 1, cur_col ,dest_row ,dest_col, path+f"{cur_row},{cur_col} ", mat)
-#     rat_chase(cur_row, cur_col - 1 ,dest_row ,dest_col, path+f"{cur_row},{cur_col} ", mat)
-    
+#     visited[cur_row][cur_col] = 1
+#     rat_chase(cur_row + 1, cur_col ,dest_row ,dest_col, mat, visited)
+#     rat_chase(cur_row, cur_col + 1 ,dest_row ,dest_col, mat, visited)
+#     rat_chase(cur_row - 1, cur_col ,dest_row ,dest_col, mat, visited)
+#     rat_chase(cur_row, cur_col - 1 ,dest_row ,dest_col, mat, visited)
+#     visited[cur_row][cur_col] = 0
 
 
 
@@ -1738,7 +1742,9 @@
 #     ['X', 'O', 'O', 'X'],
 #     ['X', 'X', 'O', 'O'],
 # ]
-# rat_chase(0 , 0, rows - 1, cols - 1, "", mat)
+
+# visited = [[0 for x in range(cols)] for y in range(rows)]
+# rat_chase(0 , 0, rows - 1, cols - 1, mat, visited)
 
 
 # def triangle(n):
@@ -2408,4 +2414,294 @@
 # final_arr = []
 # rat(mat, visited_mat, 0, 0, "", final_arr)
 # print(final_arr)
+
+# adjacency_matrix = [
+#     [0, 1, 1, 1],
+#     [1, 0, 1, 0],
+#     [1, 1, 0, 1],
+#     [1, 0, 1, 0]
+#     ]
+
+# def safe(adjacency_matrix, index, hashmap, color):
+#     node = adjacency_matrix[index]
+
+#     for connection in hashmap[color]:
+#         if node[connection] == 1:
+#             return False
+
+#     return True
+
+# def M_color(adjacency_matrix, index, hashmap):
+#     if index > len(adjacency_matrix)-1:
+#         return True
+    
+#     for key in hashmap.keys():
+#         if safe(adjacency_matrix, index, hashmap, key):
+#             hashmap[key].add(index)
+#             if M_color(adjacency_matrix, index + 1, hashmap):
+#                 return True
+
+#     return False
+
+# hashmap = {}
+# m = 1
+# for color in range(1, m+1):
+#     hashmap[color] = set()
+
+
+# print(M_color(adjacency_matrix, 0, hashmap))
+
+
+# ## FIBO
+# def fib(n, hashmap):
+#     if n== 0:
+#         return 0
+#     elif n == 1:
+#         return 1
+#     elif n in hashmap:
+#         return hashmap[n]
+#     else:
+#         hashmap[n-1] = fib(n-1, hashmap)  
+#         hashmap[n-2] = fib(n-2, hashmap)
+        
+#         return hashmap[n-1] + hashmap[n-2]
+#     # if n-1 not in hashmap:
+#     #     hashmap[n-1] = fib(n-1, hashmap)
+#     # if n-2 not in hashmap:
+#     #     hashmap[n-2] = fib(n-2, hashmap)
+    
+#     # return hashmap[n-1] + hashmap[n-2]
+
+# print(fib(998, dict()))
+
+
+
+# def stairs(n, hashmap):
+#     if n == 0:
+#         return 1
+#     elif n < 0:
+#         return 0 
+#     else:
+#         if n-1 not in hashmap:
+#             hashmap[n-1] = stairs(n-1, hashmap)
+#         if n-2 not in hashmap:
+#             hashmap[n-2] = stairs(n-2, hashmap)
+        
+#         return hashmap[n-1] + hashmap[n-2]
+
+    
+
+# def tabulate_stairs(n):
+#     array = [0 for x in range(n+1)]
+#     array[0] = 1
+
+#     for i in range(1, n+1):
+#         if i >= 2:
+#             array[i] = array[i-1] + array[i-2]
+#         else:
+#             array[i] = array[i-1]
+    
+#     return array[n]
+
+# print(tabulate_stairs(100))
+
+
+
+# Do below question using tabulation and DP
+# def house_robber(array, i, cost, wrapper):
+#     if i+2 >= len(array):
+#         if cost + array[i] > wrapper[0]:
+#             wrapper[0] = cost + array[i]
+#         return
+    
+#     for l in range(i+2, len(array)):
+#         house_robber(array, l, cost + array[i], wrapper)
+
+# array = [1,200,3,4,300]
+# wrapper = [-1]
+# for i in range(0, len(array)):
+#     house_robber(array, i, 0, wrapper)
+
+# print(wrapper[0])
+
+# def merge(left, right):
+#     i,j =0,0
+#     new_arr = []
+#     while i<len(left) and j <len(right):
+#         if left[i].val < right[j].val:
+#             new_arr.append(left[i])
+#             i+=1
+#         else:
+#             new_arr.append(right[j])
+#             j+=1
+    
+#     while i < len(left):
+#         new_arr.append(left[i])
+#         i+=1
+
+#     while j < len(right):
+#         new_arr.append(right[j])
+#         j+=1
+
+#     return new_arr
+
+# def sorting(array, low, high):
+#     if low >= high:
+#         return [array[low]]
+#     mid = (low+high)//2
+
+#     left = sorting(array, low, mid)
+#     right = sorting(array, mid+1, high)
+
+#     return merge(left, right)
+
+
+# print(sorting([4,1,33,1,4,15,4,124], 0, 7)
+# )
+
+# Tower of Hanoi
+
+# def toh(disks, from_disk, to_disk, auxillary):
+#     if disks == 1:
+#         print(f"{from_disk} to {to_disk}")
+#         return
+    
+#     toh(disks-1, from_disk, auxillary, to_disk)
+#     print(f"{from_disk} to {to_disk}")
+#     toh(disks-1, auxillary, to_disk, from_disk)
+
+# toh(2, "A","C","B")
+
+# HISTOGRAM using monotonic Stack
+# arr = [2,1,5,6,2,3,1]
+# arr= [1, 2, 3, 4, 5]
+
+# right_low = [0 for x in range(len(arr))]
+# left_low = [0 for x in range(len(arr))]
+# m_stack = []
+
+# for x in range(len(arr)-1, -1,-1):
+
+#     while len(m_stack) > 0 and arr[m_stack[-1]] >= arr[x]:
+#         m_stack.pop()
+
+#     if len(m_stack) == 0:
+#         right_low[x] = len(right_low)-1
+#     else:
+#         right_low[x] = m_stack[-1] - 1
+
+#     m_stack.append(x) 
+
+
+# m_stack = []
+# for x in range(0, len(arr)):
+
+#     while len(m_stack) > 0 and arr[m_stack[-1]] >= arr[x]:
+#         m_stack.pop()
+
+#     if len(m_stack) == 0:
+#         left_low[x] = 0
+#     else:
+#         left_low[x] = m_stack[-1] + 1
+
+#     m_stack.append(x)
+
+# print(right_low, left_low)
+
+# max_area = float("-inf")
+# for x in range(len(arr)):
+#     height = arr[x]
+
+#     width = (right_low[x] - left_low[x]) + 1
+    
+#     area = height * width
+#     if area > max_area:
+#         max_area = area
+        
+# print(max_area)
+
+# Python3 program for brute force method to calculate stock span values
+
+# Fills list S[] with span values
+
+# Trapping rain water using Prefix Sum
+# height = [0,1,0,2,1,0,1,3,2,1,2,1]
+
+# left_max = [0 for x in range(len(height))]
+# right_max = [0 for x in range(len(height))]
+
+# maxs = -1
+# for i in range(len(height)):
+#     if height[i] > maxs:
+#         maxs = height[i]
+        
+#     left_max[i] = maxs
+
+# maxs = -1
+# for i in range(len(height)-1, -1, -1):
+#     if height[i] > maxs:
+#         maxs = height[i]
+        
+#     right_max[i] = maxs
+
+# units_of_water = 0
+# for i in range(len(height)):
+#     mins = min(left_max[i], right_max[i])
+#     units_of_water += mins - height[i]
+# print(units_of_water)
+    
+
+# Trapping rain water using Monotonic Stack
+# height = [0,1,0,2,1,0,1,3,2,1,2,1]
+# stack = []
+# trapped_water = 0
+# for i in range(len(height)):
+#     while stack and height[stack[-1]] < height[i]:
+#         top = stack.pop()
+#         if stack:
+#             width = i - stack[-1] - 1
+#             heights = min(height[i], height[stack[-1]]) - height[top]
+#             trapped_water += width * heights
+    
+#     stack.append(i)
+# print(trapped_water)
+
+# Stock Span
+
+# array = [30, 35, 40, 38, 35]
+
+# stack = []
+# run_stack = []
+# for i in range(len(array)):
+#     while stack and array[stack[-1]] <= array[i]:
+#         stack.pop()
+    
+#     if stack:
+#         run_stack.append(i - stack[-1])
+#     else:
+#         run_stack.append(i+1)
+#     stack.append(i)
+
+# print(run_stack)
+
+
+# Bad approach for subarrays subranges N^2
+
+# array = [4,-2,-3,4,1]
+
+# count = 0
+# for i in range(len(array)):
+#     lows = maxs = i
+#     for l in range(i, len(array)):
+#         if array[l] > array[maxs]:
+#             maxs = l
+#         elif array[l] < array[lows]:
+#             lows = l 
+        
+#         count += array[maxs] - array[lows]
+
+# print(count)
+
+
+
 

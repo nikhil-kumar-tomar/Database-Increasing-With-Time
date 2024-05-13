@@ -570,3 +570,53 @@
 # print(heap_sort(arr=arr, size=len(arr), type_of_heapsort="max"))
 
 
+
+# doubly linked list
+
+# import gc
+# class DoubleNode:
+#     def __init__(self, val=0) -> None:
+#         self.val = val
+#         self.next = None
+#         self.back = None
+
+
+# class DoubleLL:
+#     def __init__(self, head:DoubleNode) -> None:
+#         self.head = head
+#         self.back = head.back
+#         self.next = head.next
+
+#     def find_end(self):
+#         i = self.head
+
+#         while i.next != None:
+#             i = i.next
+#         return i
+    
+#     def insert_at_end(self, val):
+#         head = self.find_end()
+#         newnode = DoubleNode(val)
+#         head.next = newnode
+#         newnode.back = head
+
+#     def delete_node(self, val):
+#         i = self.head
+#         while i != None and i.val != val:
+#             i = i.next
+        
+#         if i.back != None:
+#             i.back.next = i.next
+#         if i.next != None:
+#             i.next.back = i.back
+
+#         del i 
+#     def print(self):
+#         i = self.head
+#         while i !=None:
+#             print(i.val)
+#             i = i.next
+
+    
+
+# obj = DoubleLL(DoubleNode(9))
