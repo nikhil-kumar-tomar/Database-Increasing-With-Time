@@ -2702,6 +2702,496 @@
 
 # print(count)
 
+# class TreeNode:
+#     def __init__(self,val=None):
+#         self.val = val
+#         self.left = None
+#         self.right = None
+#     def __str__(self) -> str:
+#         return f"{self.val} -> {self.left} -> {self.right}"
+    
+# def fill_class(node, wrapped_i:list, data_list):
+    
+#     if wrapped_i[0] < len(data_list) and data_list[wrapped_i[0]] == True:
+#         wrapped_i[0] += 1
+#         node.left = TreeNode(data_list[wrapped_i[0]])
+#         wrapped_i[0] += 1
+#         fill_class(node.left, wrapped_i, data_list)
+#     else:
+#         wrapped_i[0] += 1
+    
+#     if wrapped_i[0] < len(data_list) and data_list[wrapped_i[0]] == True:
+#         wrapped_i[0] += 1
+#         node.right = TreeNode(data_list[wrapped_i[0]])
+#         wrapped_i[0] += 1
+#         fill_class(node.right, wrapped_i, data_list)
+#     else:
+#         wrapped_i[0] += 1
 
 
 
+# def preorder(root):
+#     if root == None:
+#         return
+    
+#     print(root.val)
+#     preorder(root.left)
+#     preorder(root.right)
+    
+
+# node = TreeNode(data_list[0])
+# fill_class(node, [1], data_list)
+
+# preorder(node)
+
+# def all_eaten(piles, h, k):
+#     i = 0
+#     val = piles[i]
+
+#     while h > 0 and i < len(piles):
+#         if val >= k:
+#             val -= k
+#         else:
+#             val = 0
+#         h -= 1
+        
+#         if val == 0:
+#             i += 1
+#             val = piles[i] if i < len(piles)  else None
+
+#     if i >= len(piles):
+#         return True
+#     else:
+#         return False
+
+# def minEatingSpeed(piles, h) -> int:
+#     low = 1
+#     high = max(piles)
+
+#     absolute_mid = -1
+#     while low <= high:
+#         mid = (low + high) // 2
+#         print(mid)
+#         if all_eaten(piles, h, mid):
+#             absolute_mid = mid
+#             high = mid - 1
+#         else:
+#             low = mid + 1
+
+#     return absolute_mid
+
+# print(minEatingSpeed([312884470], 312884469))
+
+# def is_true_aws(ans:list, time, m, k):
+#     prev_count = 0
+#     count = 0
+#     for x in ans:
+#         if x <= time:
+#             prev_count +=1
+#             if prev_count == k:
+#                 count += 1
+#                 prev_count = 0
+#         else:
+#             prev_count = 0
+
+#     if count >= m:
+#         return True
+#     else:
+#         return False    
+
+# low = 0 
+# high = max(bloomDay)
+
+# last_val = -1
+# while low <= high:
+#     mid = (low + high) // 2
+
+#     if is_true_aws(bloomDay, mid, m, k):
+#         last_val = mid
+#         high = mid - 1
+#     else:
+#         low = mid + 1
+
+# print(last_val)
+
+# def check(weights, days, max_weight, sums):
+#     l = 0
+#     total_count = 0
+#     while days > 0 and total_count < sums:
+#         count = 0
+#         for i in range(l, len(weights)):
+#             if count + weights[i] > max_weight:
+#                 break
+#             count += weights[i]
+#         l = i
+#         total_count += count
+#         days -= 1
+    
+
+#     if total_count == sums:
+#         return True
+#     return False
+
+
+
+
+# weights = [3,2,2,4,1,4]
+# days = 3
+# sums = sum(weights)
+
+# low = max(weights)
+# high = 500
+
+# prev_val = -1
+# while low <= high:
+#     mid = (low + high) // 2
+
+#     if check(weights, days, mid, sums):
+#         prev_val = mid
+#         high = mid - 1
+#     else:
+#         low = mid + 1
+# print(prev_val)
+# print(check(weights, days, 1000, sums))
+
+
+# Check function for Capacity to Ship Packages within D Days
+# def check(weights, days, max_weight):
+#     i = 0
+#     temp_wt = max_weight 
+#     expected_days = 1
+#     while i < len(weights):
+#         temp_wt -= weights[i]
+        
+#         if temp_wt < 0:
+#             print(weights[i])
+#             expected_days += 1
+#             temp_wt = max_weight
+#         else:
+#             i+=1
+#     return expected_days <= days
+
+# weights = [1,2,3,4,5,6,7,8,9,10] 
+# days = 5
+# max_weight = 15
+# check(weights, days, max_weight)
+
+
+# Aggressive COws
+# def check_cow_fit(stalls, cows, distance):
+#     last_fit = 0
+#     cows -= 1
+
+#     for i in range(1, len(stalls)):
+#         if stalls[i] - stalls[last_fit] >= distance:
+#             last_fit = i
+#             cows -= 1
+    
+#     return cows <= 0
+
+
+# cows = 3
+# stalls = [1 ,2 ,8 ,4 ,9]
+# stalls.sort()
+
+# low = 0
+# high = max(stalls)
+
+# maxs = 1
+# while low <= high:
+#     mid = (low + high) // 2
+
+#     if check_cow_fit(stalls, cows, mid):
+#         maxs = mid
+#         low = mid + 1
+#     else:
+#         high = mid - 1
+
+# print(maxs)
+
+# Book allocation, Painters Partition, Largeest subarray partition problem <- With logic even code remains same, just some difference in the low and high part
+
+# def check(array, max_pages):
+#     pages = 0
+#     students = 1
+#     for i in range(len(array)):
+#         if pages + array[i] < max_pages:
+#             pages += array[i]
+#         else:
+#             pages = array[i]
+#             students += 1
+#     print(students)
+#     return students 
+
+
+# array = [2,3,1,1,1,1,1] 
+# max_student = 5
+# low = max(array)
+# high = sum(array)
+
+# final_pages = -1
+# while low <= high:
+#     mid = (low + high) // 2
+
+#     required_students = check(array, mid)
+
+#     if required_students > max_student:
+#         low = mid + 1
+#     else:
+#         final_pages = mid
+#         high = mid - 1
+    
+# print(final_pages)
+
+
+# Row with max 1s, Best solution O(N + M)
+
+array = [
+    [0, 0, 0, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 1, 1, 1, 1, 1]
+
+]
+
+rows = 3
+cols = 9
+
+# row = 0
+# col = cols - 1
+
+# max_row = 0
+# while row < len(array) and col >= 0:
+#     if array[row][col] == 1:
+#         max_row = row
+#         col -= 1
+#     else:
+#         row += 1
+
+# print(max_row)
+
+# Binary Search for above (O(M * Log(N)))
+
+# def no_of_ones(array, cols):
+#     low = 0
+#     high = len(array) - 1
+
+#     while low <= high:
+#         mid = (low + high) // 2
+
+#         if array[mid] == 1:
+#             if mid > 0 and array[mid - 1] != 1:
+#                 return cols - mid
+#             else:
+#                 high = mid - 1
+         
+#         elif array[mid] == 0:
+#             if mid < len(array)-1 and array[mid + 1] != 0:
+#                 return cols - (mid + 1)
+#             else:
+#                 low = mid + 1
+    
+#     return cols - (min(low, high) + 1)
+
+
+# max_row = -1
+# max_ones = 0
+# for row in range(len(array)):
+#     row_ones = no_of_ones(array[row], cols)
+#     print(row_ones)
+#     if row_ones > max_ones:
+#         max_ones = row_ones
+#         max_row = row
+        
+# print(max_row)
+# Search 2d matrix best approach log(M * N)
+# def search_2d():
+#     matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]] 
+#     target = 60
+
+
+#     low = 0
+#     high = (len(matrix) * len(matrix[0])) - 1
+
+
+#     while low <= high:
+#         mid = (low + high) // 2
+
+#         element = matrix[mid // len(matrix[0])][mid % len(matrix[0])]
+#         if element == target:
+#             return True
+#         elif element < target:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+
+#     return False
+
+
+# Search a 2d Matrix 2 (Best O(N + M))
+matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]] 
+target = 5
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+# row = 0
+# col = cols - 1
+
+# found = False
+# while row < rows and col >= 0:
+#     element = matrix[row][col]
+
+#     if element == target:
+#         found = True
+#         break
+#     elif element < target:
+#         row += 1
+#     else:
+#         col -= 1
+# print(found)
+
+# Binary Search (M * Log(N)) Solution
+
+# def classic_bs(array, target):
+#     low = 0
+#     high = len(array) - 1
+
+#     while low <= high:
+#         mid = (low + high) // 2
+
+#         if array[mid] == target:
+#             return True
+#         elif array[mid] < target:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+#     return False
+
+# for row in matrix:
+#     if classic_bs(row, target) == True:
+#         print(True)
+#         break
+
+# def find_max_col(mat, col):
+#     maxs = float("-inf")
+#     coords = [-1,-1]
+#     for row in range(len(mat)):
+#         if mat[row][col] > maxs:
+#             maxs = mat[row][col]
+#             coords[0] = row
+#             coords[1] = col
+
+#     return coords
+
+# mat = [[...]]
+# low = 0 
+# high = len(mat[0]) - 1
+
+
+# while low <= high:
+#     mid = (low + high) // 2
+
+#     coords = find_max_col(mat, mid)
+#     element = mat[coords[0]][coords[1]]
+#     left = mat[coords[0]][coords[1] - 1] if coords[1] > 0 else - 1
+#     right = mat[coords[0]][coords[1] + 1] if coords[1] < len(mat[0])-1 else - 1
+#     if element > left and element > right:
+#         print(coords)
+#         break
+#     elif element < mat[coords[0]][coords[1] + 1]:
+#         low = mid + 1
+#     else:
+#         high = mid - 1
+
+# Matrix Median
+
+# def binary_search(arr, target):
+#     low = 0 
+#     high = len(arr) - 1
+
+#     first_high = -1
+#     while low <= high:
+#         mid = (low + high) // 2
+
+#         if arr[mid] >= target:
+#             first_high = mid
+#             high= mid - 1
+#         else:
+#             low = mid + 1
+
+#     return first_high if first_high != -1 else len(arr)
+
+# def smaller_elements(mat, target):
+#     smaller_element = 0
+
+#     for row in mat:
+#         smaller_element += binary_search(row, target)
+#     return smaller_element
+
+
+# M = [[1], [2], [3]]
+
+# median_smaller_nums = (len(M) * len(M[0])) // 2 
+# low = 0
+# high = 2000
+
+# answer = -1
+# while low <= high:
+#     mid = (low + high) // 2
+
+#     smaller_elements_from_target = smaller_elements(M, mid)
+#     if smaller_elements_from_target <= median_smaller_nums:
+#         answer = mid
+#         low = mid + 1
+#     else:
+#         high = mid - 1
+# print(answer)
+
+# def check(board, row, col, element):
+    
+#     for entire_row in board:
+#         if entire_row[col] == element:
+#             return False
+    
+#     for filled_element in board[row]:
+#         if filled_element == element:
+#             return False 
+    
+#     sub_board_row = 3 * (row  // 3)
+#     sub_board_col = 3 *(col // 3)
+
+#     for i in range(sub_board_row, sub_board_row + 3):
+#         for j in range(sub_board_col, sub_board_col + 3):
+#             if board[i][j] == element:
+#                 return False
+    
+#     return True
+
+
+
+# def solve(board, pointer):
+#     row = pointer // 9
+#     col = pointer % 9
+
+#     if pointer > 80:
+#         return True
+    
+#     if board[row][col] != ".":
+#         return solve(board, pointer+1)
+        
+#     else:
+#         for i in range(1, 10):
+#             if check(board, row, col, str(i)):
+#                 board[row][col] = str(i)
+#                 if solve(board, pointer+1) == True:
+#                     return True
+#                 else:
+#                     board[row][col] = "."
+
+    
+
+
+
+# board = [[".",".","9","7","4","8",".",".","."],["7",".",".",".",".",".",".",".","."],[".","2",".","1",".","9",".",".","."],[".",".","7",".",".",".","2","4","."],[".","6","4",".","1",".","5","9","."],[".","9","8",".",".",".","3",".","."],[".",".",".","8",".","3",".","2","."],[".",".",".",".",".",".",".",".","6"],[".",".",".","2","7","5","9",".","."]]
+# solve(board,0)
+# print(board)

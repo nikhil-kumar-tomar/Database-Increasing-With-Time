@@ -620,3 +620,96 @@
     
 
 # obj = DoubleLL(DoubleNode(9))
+
+
+# Heap Structure implemented by self, After reading and watching videos a lot.
+# More optimization can be done by making heap start to build from len // 2 <- because half of the nodes are always leaf so they will never be exchanged,
+# But nodes just above leafs can be exchanged with below children, We saw this in the Heapify Maths we did.
+# class Heap:
+#     def __init__(self, array, heap_type: int):
+#         self.heap = array
+#         self.__type = heap_type
+#         self.__build_heap()
+
+#     def __build_heap(self):
+#         heapify_function = None
+#         if self.__type == 1:
+#             heapify_function = self.__max_heapify
+#         else:
+#             heapify_function = self.__min_heapify
+
+#         for i in range(len(self.heap)-1, -1, -1):
+#             print(self.heap)
+#             heapify_function(i)
+
+#     def __max_heapify(self, i):
+#         current = i
+#         left = (i * 2) + 1
+#         right = (i * 2) + 2
+        
+        
+#         if left < len(self.heap) and self.heap[left] > self.heap[current]:
+#             current = left
+#         if right < len(self.heap)  and self.heap[right] > self.heap[current]:
+#             current = right
+        
+
+#         if current != i:
+#             self.heap[i], self.heap[current] = self.heap[current], self.heap[i]
+#             self.__max_heapify(current)
+
+#     def __min_heapify(self, i):
+#         current = i
+#         left = (i * 2) + 1
+#         right = (i * 2) + 2
+        
+        
+#         if left < len(self.heap) and self.heap[left] < self.heap[current]:
+#             current = left
+#         if right < len(self.heap)  and self.heap[right] < self.heap[current]:
+#             current = right
+        
+
+#         if current != i:
+#             self.heap[i], self.heap[current] = self.heap[current], self.heap[i]
+#             self.__min_heapify(current)
+
+    
+#     def delete(self):
+#         temp = self.heap[0]
+#         self.heap[0], self.heap[len(self.heap) - 1] = self.heap[len(self.heap) - 1], self.heap[0]
+#         self.heap.pop()
+#         if self.__type == 1:
+#             self.__max_heapify(0)
+#         else:
+#             self.__min_heapify(0)
+
+#         return temp
+
+#     def insert(self, element):
+#         self.heap.append(element)
+#         current = len(self.heap) - 1
+#         parent = current // 2
+
+#         if self.__type == 1:
+#             while self.heap[parent] < self.heap[current]:
+#                 self.heap[parent], self.heap[current] = self.heap[current], self.heap[parent]
+#                 current = parent
+#                 parent = current // 2
+#         else:
+#             while self.heap[parent] > self.heap[current]:
+#                 self.heap[parent], self.heap[current] = self.heap[current], self.heap[parent]
+#                 current = parent
+#                 parent = current // 2
+
+
+# heap = Heap([30,20,10,50,16,8], 1)
+# # while heap.heap:
+# #     print(heap.delete())
+# heap.insert(90)
+# heap.insert(45)
+# heap.insert(7)
+# print(heap.heap)
+
+
+
