@@ -3195,3 +3195,597 @@ cols = len(matrix[0])
 # board = [[".",".","9","7","4","8",".",".","."],["7",".",".",".",".",".",".",".","."],[".","2",".","1",".","9",".",".","."],[".",".","7",".",".",".","2","4","."],[".","6","4",".","1",".","5","9","."],[".","9","8",".",".",".","3",".","."],[".",".",".","8",".","3",".","2","."],[".",".",".",".",".",".",".",".","6"],[".",".",".","2","7","5","9",".","."]]
 # solve(board,0)
 # print(board)
+
+# def check(hashmap, i, k):
+#     if i == k:
+#         return True
+    
+#     for element in hashmap:
+#         new_map = {}
+#         broken = 0
+#         for i_element in range(element, k + element):
+#             if hashmap.get(i_element, 0) == 0:
+#                 broken = 1
+#                 break
+#             new_map[i_element] = 1
+        
+#         if broken:
+#             continue
+#         for x in new_map:
+#             hashmap[x] -= new_map[x]
+        
+#         final = check(hashmap, i+1, k)
+#         if final:
+#             return final
+
+#         for x in new_map:
+#             hashmap[x] += new_map[x]
+    
+#     return False
+
+# hand = [2,3,1] 
+# groupSize = 3
+
+# hashmap = {}
+# for x in hand:
+#     if hashmap.get(x, None) != None:
+#         hashmap[x] += 1
+#     else:
+#         hashmap[x] = 1
+
+# print(check(hashmap, 1, groupSize))
+
+# Median of data Stream
+
+# import heapq
+# arr = [18, 251, 158, 158, 529, 180, 134, 529, 240, 435, 435, 316, 350, 537, 490, 198, 359, 493, 585, 614, 21, 583, 106, 549, 271, 174, 430, 222, 117, 159, 206, 100, 496, 129, 550, 411, 216, 271, 98, 119, 232, 629, 101, 218, 53, 468, 447, 402, 603, 584, 306, 269, 623, 88, 79, 521, 261, 544, 628, 121, 278, 132, 105, 72, 459, 408, 111, 291, 437, 7, 276, 34, 16, 254, 177, 550, 632, 464, 191, 167, 158, 331, 187, 123, 274, 321, 182, 93, 277, 595, 459, 349, 80, 195, 195, 214, 14, 384, 68, 427, 84, 609, 283, 59, 234, 327, 330, 509, 568, 65, 442, 380, 321, 589, 603, 64, 486, 175, 204, 421, 381, 209, 578, 580, 294, 287, 518, 261, 619, 155, 636, 287, 250, 209, 586, 299, 589, 65, 34, 216, 507, 380, 127, 186, 135, 533, 272, 563, 249, 350, 516, 229, 307, 127, 306, 195, 537, 269, 485, 446, 206, 222, 515, 240, 266, 417, 472, 140, 185, 439, 592, 283, 273, 188, 230, 195, 217, 321, 246, 563, 113, 411, 290, 351, 221, 76, 399, 19, 142, 544, 47, 270, 614, 36, 538, 179, 370, 387, 513, 570, 546, 347, 181, 257, 182, 412, 588, 66, 276, 381, 94, 461, 570, 550, 432, 192, 153, 382, 568, 233, 375, 186, 469, 402, 266, 143, 146, 44, 512, 540, 297, 520, 545, 436, 412, 597, 535, 13, 12, 109, 128, 84, 619, 85, 203, 478, 367, 77, 485, 640, 415, 533, 628, 338, 542, 560, 11, 80, 277, 148, 113, 23, 246, 453, 221, 310, 486, 262, 87, 330, 390, 199, 451, 540, 283, 466, 37, 639, 515, 319, 520, 289, 620, 470, 216, 249, 229, 130, 134, 637, 350, 605, 481, 220, 373, 60, 100, 205, 270, 305, 166, 525, 373, 627, 607, 111, 91, 491, 143, 353, 549, 434, 182, 386, 33, 540, 364, 456, 635, 317, 637, 0, 310, 559, 591, 8, 243, 331, 222, 117, 396, 163, 568, 309, 176, 61, 560, 102, 614, 586, 569, 261, 436, 45, 606, 549, 170, 123, 249, 296, 291, 486, 158, 300, 603, 371, 170, 498, 378, 480, 62, 586, 317, 502, 563, 399, 266, 93, 231, 22, 531, 245, 599, 189, 297, 637, 233, 237, 345, 387, 379, 419, 212, 323, 96, 64, 59, 144, 369, 252, 442, 597, 494, 438, 100, 157, 184, 478, 497, 107, 39, 263, 239, 143, 134, 224, 498, 79, 254, 240, 28, 533, 484, 389, 89, 621, 151, 313, 28, 274, 105, 601, 265, 548, 401, 254, 539, 113, 118, 165, 77, 478, 534, 65, 165, 580, 380, 83, 455, 506, 336, 445, 398, 384, 389, 209, 207, 537, 383, 176, 92, 478, 455, 503, 526, 623, 260, 522, 326, 335, 336, 221, 119, 426, 561, 301, 168, 377, 75, 615, 390, 88, 29, 343, 572, 608, 358, 91, 534, 336, 395, 580, 478, 448, 305, 640, 339, 139, 526, 592, 542, 215, 7, 168, 39, 622, 386, 81, 314, 599, 77, 400, 359, 622, 147, 203, 487, 612, 111, 413, 487, 95, 469, 475, 6, 9, 437, 502, 488, 77, 424, 625, 223, 102, 371, 408, 389, 312, 134, 77, 629, 318, 12, 533, 309, 575, 616, 62, 303, 85, 36, 20, 447, 388, 463, 543, 439, 204, 479, 9, 598, 437, 9, 480, 580, 450, 318, 521, 466, 214, 236, 44, 345, 276, 227, 378, 83, 562, 45, 514, 260, 370, 562, 352, 164, 450, 418, 114, 41, 169, 577, 412, 239, 75, 633, 439, 371, 566, 507, 214, 435, 39, 86, 215, 239, 621, 39, 377, 297, 156, 607, 342, 18, 374, 359, 560, 98, 343, 287, 418, 371, 308, 349, 607, 470, 568, 14, 302, 605, 635, 543, 471, 241, 519, 169, 381, 344, 159, 164, 624, 93, 123, 474, 184, 296, 619, 179, 194, 468, 245, 0]
+
+# count = 0
+# expected_max_size = 0
+# max_heap = []
+# min_heap = []
+# for x in arr:
+#     count += 1
+#     if (count % 2) == 0:
+#         expected_max_size = count // 2
+#     else:
+#         expected_max_size = (count + 1) // 2
+    
+#     if len(max_heap) < expected_max_size:
+#         if not max_heap:
+#             heapq.heappush(max_heap, -1 * x)
+#         else:
+#             if x < -1 * max_heap[0] or (x > -1 * max_heap[0] and (min_heap and x < min_heap[0])):
+#                 heapq.heappush(max_heap, -1 * x)
+#             else:
+#                 heapq.heappush(max_heap, -1 * heapq.heappop(min_heap)) 
+#                 heapq.heappush(min_heap, x)
+#     else:
+#         if x < -1 * max_heap[0]:
+#             max_element = -1 * heapq.heappop(max_heap)
+#             heapq.heappush(min_heap, max_element)
+#             heapq.heappush(max_heap, -1 * x)
+#         else:
+#             heapq.heappush(min_heap, x)
+    
+#     # print(max_heap, min_heap, "even" if count % 2==0 else "odd", expected_max_size, x)
+
+#     if count % 2 != 0:
+#         print(-1 * max_heap[0])
+#     else:
+#         print((min_heap[0] + (-1 * max_heap[0])) / 2)
+
+
+
+    # count += 1
+
+# print(max_heap, min_heap)
+
+
+# def output(string, rounds):
+#     count = {x:0 for x in ["A","B","C","D","E","F","G"]}
+
+#     for x in string:
+#         count[x] += 1
+
+#     required = 0
+#     for x in count:
+#         if count[x] < rounds:
+#             required += rounds - count[x]
+
+#     return required
+
+# test_cases = int(input())
+# for _ in range(test_cases):
+#     size, rounds = list(map(int, input().split()))
+#     print(output(input(), rounds))
+    
+# dividend = 7
+# divisor = -3
+# sums = 0
+# while dividend >= divisor:
+#     n = 0
+#     while (divisor << n) < dividend:
+#         n += 1
+#     sums += (1 << n-1)
+#     dividend -= (divisor << n - 1)
+
+# print(sums)
+
+
+# def calculate_hammer(A, B, low, high):
+#     B_pointer = 0
+#     hammers = 0
+#     for i in range(low, high + 1):
+#         if A[i] != B[B_pointer]:
+#             hammers += 1
+
+#         B_pointer += 1
+    
+#     return hammers
+
+
+# test_cases = int(input())
+
+# for _ in range(test_cases):
+#     mins = float("inf")
+#     N, M = list(map(int, input().split()))
+#     A = input()
+#     B = input()
+#     low,high = 0,0
+
+#     while low <= (N - M):
+
+#         high = low + (M - 1)
+#         hammers = calculate_hammer(A, B, low, high)
+#         if hammers < mins:
+#             mins = hammers
+#         low += 1
+    
+#     print(mins)
+
+# Subsets using Bit Manipulation
+# array = [1,2,3]
+# to_num = 2**len(array)
+
+# i = 0
+# new_array = []
+
+# while i < to_num:
+#     temp_arr = []
+#     num = i
+#     l = 0
+#     while num:
+#         print(num, l)
+#         if (num & 1):
+#             temp_arr.append(array[l])
+#         num = num >> 1
+#         l += 1
+    
+#     new_array.append(temp_arr)
+#     i += 1
+# print(new_array)
+
+# sieve of eurathenous
+
+def sieve(n):
+    array = [0,0]
+    for x in range(1, n + 1):
+        array.append(1)
+    
+    for i in range(2, int(n ** (1/2)) + 1):
+        if array[i] == 1:
+            for j in range(i * i, n+1, i):
+                array[j] = 0
+    
+    return array
+
+# print(len(sieve(31)))
+
+# Maximum points After enemy battles
+
+# import heapq
+
+# enemyEnergies = [1,1,1,1] 
+
+# currentEnergy = 100
+# points = 0
+# marked = set()
+
+# i = 0
+# j = len(enemyEnergies) - 1
+
+# while i < j:
+#     if currentEnergy < min_heap[0][0]:
+#         if points >= 1:
+#             max_tuple = heapq.heappop(max_heap)
+#             max_element, index = -1 * max_tuple[0], -1 * max_tuple[1]
+#             marked.add(index)
+#             currentEnergy += max_element
+#         else:
+#             break
+#     else:
+#         currentEnergy -= min_heap[0][0]
+#         points += 1
+
+
+# min_heap = []
+# max_heap = []
+
+# for i in range(len(enemyEnergies)):
+#     min_heap.append((enemyEnergies[i], i))
+#     max_heap.append((-1 * enemyEnergies[i], -1 * i))
+
+# heapq.heapify(min_heap)
+# heapq.heapify(max_heap)
+
+# while min_heap:
+#     if min_heap[0][1] in marked:
+#         heapq.heappop(min_heap)
+#         continue
+    
+#     if currentEnergy < min_heap[0][0]:
+#         if points >= 1:
+#             max_tuple = heapq.heappop(max_heap)
+#             max_element, index = -1 * max_tuple[0], -1 * max_tuple[1]
+#             marked.add(index)
+#             currentEnergy += max_element
+#         else:
+#             break
+#     else:
+#         currentEnergy -= min_heap[0][0]
+#         points += 1
+
+# print(points)
+
+# import heapq
+# def sieve(n):
+#     array = [0,0]
+#     for x in range(1, n):
+#         array.append(1)
+    
+#     new_heap = [-1]
+#     for i in range(2, int(n ** (1/2)) + 1):
+#         if array[i] == 1:
+#             for j in range(i * i, n+1, i):
+#                 if j % 2 != 0:
+#                     new_heap.append(-1 * j)
+#                 array[j] = 0
+    
+#     return new_heap
+
+# heap = sieve(100)
+
+# print(heap)
+# k = 10
+# heapq.heapify(heap)
+# sums = 0
+# prev= -1
+# while k > 0 and heap:
+#     max_element = -1 * heapq.heappop(heap)
+#     if max_element != prev:
+#         sums += max_element
+#         k -= 1
+#         prev = max_element
+
+# if k == 0:
+#     print(sums)
+# else:
+#     print(-1)
+
+
+# number = 17
+# sums = 0
+# digits = 0
+# while number:
+#     sums += number % 10
+#     digits += 1
+#     number = number // 10
+
+# if sums % digits == 0:
+#     print(True)
+# else:
+#     print(False)
+
+
+# Bitwise And in Range
+
+# import math
+
+# left = 5
+# right = 7
+
+# final = left & right
+# difference = right - left
+
+# msb = -1
+# if difference > 0:
+#     msb = (math.floor(math.log2(difference)))
+
+# optimizer = ~(0) << msb + 1 
+
+# final = final & optimizer
+# print(final)
+
+# Single number 3
+
+# xor = 0
+# nums = [1,2,1,3,2,5]
+
+# for x in nums:
+#     xor = xor ^ x
+
+# bit = 0
+# while xor & 1 != 1:
+#     bit += 1
+#     xor >>= 1
+
+# first = 0
+# second = 0
+# for x in nums:
+#     number = x >> bit
+#     if number & 1 == 1:
+#         first ^= x
+#     else:
+#         second ^=x
+
+# print(first, second)
+
+
+a = -9
+b = 1
+carry = 0
+
+# new_num = 0 
+# i = 0
+# while (a or b or carry) and i < 31:
+#     first = a & 1
+#     second = b & 1
+#     if first == second:
+#         if first == 1:
+#             if carry == 1:
+#                 new_num |= 1 << i
+
+#             carry = 1
+#         else:
+#             if carry == 1:
+#                 new_num |= 1 << i
+#             carry = 0
+#     else:
+#         if carry == 1:
+#             carry = 1
+#         else:
+#             new_num |= 1 << i
+#             carry = 0
+
+#     a >>= 1
+#     b >>= 1
+#     i+=1
+
+
+# print(new_num & mask)
+
+
+# mask = 0xfffffff 
+# a = -9
+# b = 10
+
+# while (b & mask) > 0:
+#     carry = (a & b) << 1
+    
+#     a = (a ^ b)
+#     b = carry
+
+# print(b)
+
+# Increasing order sets
+# arr = [5,3,2,4,1,8,9,11]
+# new_stacks = set()
+# for i in range(3, 1 << len(arr)):
+#     stack = []
+#     k = 0
+#     while i:
+#         bit = i & 1
+#         if bit:
+#             if stack and stack[-1] > arr[k]:
+#                 break
+
+#             stack.append(arr[k])
+#         i >>= 1 
+#         k += 1
+
+#     if not i and len(stack) >= 2:
+#         new_stacks.add(tuple(stack))
+
+# print(new_stacks)
+
+# Copying bits in range
+# left = 1
+# right = 3
+# left_number = 6
+# right_number = 19
+
+# mask = ~0
+# mask = mask ^ (1 << left - 1) - 1
+# mask = mask ^ ~((1 << right) - 1)
+
+# mask = left_number & mask
+# right_number |= mask
+
+# print(right_number)
+
+# sums = 0
+# stack = []
+# string = "??"
+
+# for i in range(len(string)):
+#     if string[i] == '?':
+#         left = False
+#         right = False
+
+#         if (i - 1) >= 0 and stack[-1] == "1":
+#             left = True
+#         if (i + 1) < len(string) and string[i + 1] == "1":
+#             right = True
+        
+#         if left or right:
+#             stack.append("0")
+#         else:
+#             stack.append("1")
+#             sums += 1
+#     else:
+#         stack.append(string[i])
+#         sums += int(string[i])
+# print(stack, sums)
+
+# P = [[0, 0], [2,2],[-2,-2]]
+# P = [[0, 2], [1, 3], [2, 0], [5,1]]
+# sm_x, gr_x  = float("inf"), float("-inf")
+# sm_y, gr_y  = float("inf"), float("-inf")
+
+# for tup in P:
+#     if tup[0] < sm_x:
+#         sm_x = tup[0]
+#     if tup[0] > gr_x:
+#         gr_x = tup[0]
+    
+#     if tup[1] < sm_y:
+#         sm_y = tup[1]
+#     if tup[1] > gr_y:
+#         gr_y = tup[1]
+
+# rectangle_points = [
+#     [sm_x, sm_y],
+#     [sm_x, gr_y],
+#     [gr_x, sm_y],
+#     [gr_x, gr_y],
+# ]
+
+# for tup in P:
+#     if not (
+#         (tup[0] >= rectangle_points[0][0] and tup[0] <= rectangle_points[2][0] and tup[1] == rectangle_points[0][1]) or 
+#         (tup[1] >= rectangle_points[0][1] and tup[1] <= rectangle_points[1][1] and tup[0] == rectangle_points[0][0]) or 
+#         (tup[0] <= rectangle_points[3][0] and tup[0] >= rectangle_points[1][0] and tup[1] ==rectangle_points[3][1]) or 
+#         (tup[1] <= rectangle_points[3][1] and tup[1] >= rectangle_points[2][1] and tup[0] == rectangle_points[3][0])
+#     ):
+#         print(0)
+
+
+#     # for point in rectangle_points:
+#     #     if tup[0] >= point[0] and tup[1] 
+#     # if not valid:
+#     #     print(0)        
+# print(1)
+# print(sm_x, sm_y, gr_x, gr_y)
+    
+
+# d = 6
+# s = 1
+# current_number = 0
+
+# if 9 * d < s:
+#     print(-1)
+
+# def binary_search(s, i, d):
+#     if i == d:
+#         low = 1
+#     else:
+#         low = 0
+#     high = 9
+
+#     answer = -1
+#     while low <= high:
+#         mid = (low + high) // 2
+
+#         if (s - mid) <= (9 *(i - 1)):
+#             answer = mid
+#             high = mid - 1
+#         else:
+#             low = mid + 1
+
+#     return answer
+
+# for i in range(d, 0, -1):
+    
+#     answer = binary_search(s, i, d)
+
+#     s -= answer
+#     current_number *= 10
+#     current_number += answer
+    
+# print(current_number)
+    
+    # print(s - j)
+    # print(i)
+
+
+# Defense of Kingdom
+# for _ in range(int(input())):
+#     w, h, t = list(map(int, input().split()))
+#     array_x  = [0]
+#     array_y = [0]
+#     for _ in range(t):
+#         x,y = tuple(map(int, input().split()))
+#         array_x.append(x)
+#         array_y.append(y)
+#     array_x.append(w+1)
+#     array_y.append(h+1)
+#     array_x.sort()
+#     array_y.sort()
+
+#     max_x, max_y = float("-inf"), float("-inf")
+
+#     for i in range(len(array_x) - 1):
+#         max_x = max(max_x, array_x[i+1] - array_x[i] - 1)
+#         max_y = max(max_y, array_y[i+1] - array_y[i] - 1)
+
+#     print(max_x * max_y)
+
+# array = [-1000,-1000,-1000,1000,1000,1000,1000,1000,1000,1000,-1000,-1000,-1000,-1000]
+
+# while True:
+#     inp = int(input())
+#     if inp == 0:
+#         break
+#     array = list(map(int, input().split()))
+
+#     stack_left = []
+#     stack_right = []
+
+#     for i in range(len(array)-1, -1, -1):
+#         if array[i] < 0:
+#             stack_right.append(i)
+
+#     cost = 0
+#     for i in range(len(array)):
+#         if stack_right and i == stack_right[-1]:
+#             stack_left.append(stack_right.pop())
+
+#         while array[i] > 0:
+#             left = 1
+#             mins = float("inf")
+#             index, difference = None, float("inf")
+            
+#             if stack_left and  (i - stack_left[-1]) < difference:
+#                 mins = array[stack_left[-1]]
+#                 index = stack_left[-1]
+#                 difference = i - index
+
+#             if stack_right and (stack_right[-1] - i) < difference:
+#                 left = 0
+#                 mins = array[stack_right[-1]]
+#                 index = stack_right[-1]
+#                 difference = index - i
+
+#             if array[i] >= abs(mins):
+#                 array[i] -= abs(mins)
+#                 array[stack_left.pop() if left else stack_right.pop()] = 0
+#                 cost += (abs(mins) * difference)  
+#             else:
+#                 array[index] += array[i]
+#                 cost += (array[i] * difference)
+#                 array[i] = 0
+
+#     print(cost)
+
+

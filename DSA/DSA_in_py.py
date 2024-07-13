@@ -639,7 +639,6 @@
 #             heapify_function = self.__min_heapify
 
 #         for i in range(len(self.heap)-1, -1, -1):
-#             print(self.heap)
 #             heapify_function(i)
 
 #     def __max_heapify(self, i):
